@@ -54,7 +54,7 @@ struct userCard_Previews: PreviewProvider {
     static var previews: some View {
       let user =  User(
         name: "User1",
-        userName: "User1_1",
+        userName: "User1_2",
         image: "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png/revision/latest/scale-to-width-down/1200?cb=20210223094656"
       )
       UserCard(user: user)
