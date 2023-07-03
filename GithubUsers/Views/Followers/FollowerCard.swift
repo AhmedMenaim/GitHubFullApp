@@ -1,20 +1,20 @@
 //
-//  Followers.swift
+//  FollowerCard.swift
 //  GithubUsers
 //
-//  Created by Menaim on 02/07/2023.
+//  Created by Menaim on 03/07/2023.
 //
 
 import SwiftUI
 
-struct Followers: View {
+struct FollowerCard: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct Followers_Previews: PreviewProvider {
+struct FollowerCard_Previews: PreviewProvider {
     static var previews: some View {
-        Followers()
+        FollowerCard()
     }
 }

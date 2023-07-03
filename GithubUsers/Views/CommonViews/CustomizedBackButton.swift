@@ -16,7 +16,7 @@ struct CustomizedBackButton: View {
       HStack {
         Image(systemName: "arrowshape.backward.fill")
           .aspectRatio(contentMode: .fit)
-          .foregroundColor(.black)
+          .foregroundColor(.white)
       }
     }
   }

@@ -18,7 +18,7 @@ struct OptionView: View {
         maxWidth: .infinity,
         minHeight: 40,
         alignment: .center)
-      .background(.blue.gradient)
+      .background(.purple.gradient.opacity(0.7))
       .cornerRadius(8)
   }
 }
