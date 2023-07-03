@@ -31,7 +31,7 @@ struct UserDetails: View {
   @State var isTwitterExisted = false
   @State var isLocationExisted = false
   @State var isWorkExisted = false
-  @State var username: String?
+  @State var username: String = ""
 
   // MARK: - Views
 
@@ -68,7 +68,7 @@ struct UserDetails: View {
         VStack(spacing: 10) {
           HStack(spacing: 12.0) {
             NavigationLink(destination: {
-              Followers()
+              FollowersView(username: $username)
             }, label: {
               OptionView(title: $followersTitle)
             })
@@ -152,7 +152,7 @@ struct UserDetails: View {
             maxHeight: 48,
             alignment: .center
           )
-          .background(.black.gradient)
+          .background(.purple.gradient.opacity(0.3))
         }
         .cornerRadius(8)
         .padding(24)
@@ -160,7 +160,7 @@ struct UserDetails: View {
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(leading: CustomizedBackButton())
-    .navigationTitle(username ?? "")
+    .navigationTitle(username)
     .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       fetchUserDetails()
@@ -195,7 +195,7 @@ struct UserDetails_Previews: PreviewProvider {
 extension UserDetails {
   func fetchUserDetails() {
     APIService.shared.getUserDetails(
-      username: username ?? ""
+      username: username
     ) { result in
       switch result {
         case .success(let response):

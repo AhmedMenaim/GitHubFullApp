@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A2920DA22A5049F0004FBC34 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920DA12A5049F0004FBC34 /* UserDetails.swift */; };
-		A2A41CE02A51B840005DB375 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CDF2A51B840005DB375 /* Followers.swift */; };
+		A2A41CE02A51B840005DB375 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CDF2A51B840005DB375 /* FollowersView.swift */; };
 		A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */; };
 		A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */; };
 		A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE62A52B15B005DB375 /* OptionView.swift */; };
 		A2A41CE92A53150E005DB375 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE82A53150E005DB375 /* UsersView.swift */; };
 		A2A41CEB2A533034005DB375 /* CustomizedBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CEA2A533034005DB375 /* CustomizedBackButton.swift */; };
+		A2A41CEE2A533680005DB375 /* FollowersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CED2A533680005DB375 /* FollowersAPIClient.swift */; };
+		A2A41CF12A5336CD005DB375 /* FollowersNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CF02A5336CD005DB375 /* FollowersNetworkResponse.swift */; };
+		A2A41CF32A533BCE005DB375 /* FollowerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CF22A533BCE005DB375 /* FollowerCard.swift */; };
 		A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */; };
 		A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E242A48D8D500D1DD7C /* HomeView.swift */; };
 		A2A54E272A48D8D600D1DD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A54E262A48D8D600D1DD7C /* Assets.xcassets */; };
@@ -25,12 +28,15 @@
 
 /* Begin PBXFileReference section */
 		A2920DA12A5049F0004FBC34 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
-		A2A41CDF2A51B840005DB375 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
+		A2A41CDF2A51B840005DB375 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
 		A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsNetworkResponse.swift; sourceTree = "<group>"; };
 		A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		A2A41CE62A52B15B005DB375 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		A2A41CE82A53150E005DB375 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		A2A41CEA2A533034005DB375 /* CustomizedBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedBackButton.swift; sourceTree = "<group>"; };
+		A2A41CED2A533680005DB375 /* FollowersAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersAPIClient.swift; sourceTree = "<group>"; };
+		A2A41CF02A5336CD005DB375 /* FollowersNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersNetworkResponse.swift; sourceTree = "<group>"; };
+		A2A41CF22A533BCE005DB375 /* FollowerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCard.swift; sourceTree = "<group>"; };
 		A2A54E1F2A48D8D500D1DD7C /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		A2A54E242A48D8D500D1DD7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = GithubUsers/Views/HomeView.swift; sourceTree = SOURCE_ROOT; };
@@ -73,7 +79,8 @@
 		A2A41CDE2A51B831005DB375 /* Followers */ = {
 			isa = PBXGroup;
 			children = (
-				A2A41CDF2A51B840005DB375 /* Followers.swift */,
+				A2A41CDF2A51B840005DB375 /* FollowersView.swift */,
+				A2A41CF22A533BCE005DB375 /* FollowerCard.swift */,
 			);
 			path = Followers;
 			sourceTree = "<group>";
@@ -86,6 +93,23 @@
 				A2A41CEA2A533034005DB375 /* CustomizedBackButton.swift */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		A2A41CEC2A533663005DB375 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41CED2A533680005DB375 /* FollowersAPIClient.swift */,
+				A2A41CEF2A5336B4005DB375 /* Model */,
+			);
+			path = Followers;
+			sourceTree = "<group>";
+		};
+		A2A41CEF2A5336B4005DB375 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41CF02A5336CD005DB375 /* FollowersNetworkResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A2A54E162A48D8D400D1DD7C = {
@@ -138,6 +162,7 @@
 		A2A54E332A48DB9E00D1DD7C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A2A41CEC2A533663005DB375 /* Followers */,
 				A2A54E352A48DBBB00D1DD7C /* NetworkService.swift */,
 				A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */,
 				A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */,
@@ -216,13 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */,
-				A2A41CE02A51B840005DB375 /* Followers.swift in Sources */,
+				A2A41CE02A51B840005DB375 /* FollowersView.swift in Sources */,
 				A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */,
 				A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */,
 				A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */,
 				A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */,
 				A2A54E362A48DBBB00D1DD7C /* NetworkService.swift in Sources */,
+				A2A41CF12A5336CD005DB375 /* FollowersNetworkResponse.swift in Sources */,
 				A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */,
+				A2A41CF32A533BCE005DB375 /* FollowerCard.swift in Sources */,
+				A2A41CEE2A533680005DB375 /* FollowersAPIClient.swift in Sources */,
 				A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */,
 				A2A41CEB2A533034005DB375 /* CustomizedBackButton.swift in Sources */,
 				A2A41CE92A53150E005DB375 /* UsersView.swift in Sources */,
@@ -363,6 +391,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,6 +421,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -72,7 +72,7 @@ struct HomeView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView()
-    // .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
-      .previewDevice(PreviewDevice(rawValue: "iPhone 14 pro max"))
+    /// Ctrl + Option  on previewDevice to select the needed device
+      .previewDevice("iPhone 14 Pro Max")
   }
 }
