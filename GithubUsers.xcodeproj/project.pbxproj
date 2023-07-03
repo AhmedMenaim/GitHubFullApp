@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A2920DA22A5049F0004FBC34 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920DA12A5049F0004FBC34 /* UserDetails.swift */; };
+		A2A41CE02A51B840005DB375 /* Followers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CDF2A51B840005DB375 /* Followers.swift */; };
+		A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */; };
+		A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */; };
+		A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE62A52B15B005DB375 /* OptionView.swift */; };
 		A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */; };
 		A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E242A48D8D500D1DD7C /* HomeView.swift */; };
 		A2A54E272A48D8D600D1DD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A54E262A48D8D600D1DD7C /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		A2920DA12A5049F0004FBC34 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		A2A41CDF2A51B840005DB375 /* Followers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Followers.swift; sourceTree = "<group>"; };
+		A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsNetworkResponse.swift; sourceTree = "<group>"; };
+		A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
+		A2A41CE62A52B15B005DB375 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		A2A54E1F2A48D8D500D1DD7C /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		A2A54E242A48D8D500D1DD7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = GithubUsers/Views/HomeView.swift; sourceTree = SOURCE_ROOT; };
@@ -55,6 +63,23 @@
 				A2920DA12A5049F0004FBC34 /* UserDetails.swift */,
 			);
 			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		A2A41CDE2A51B831005DB375 /* Followers */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41CDF2A51B840005DB375 /* Followers.swift */,
+			);
+			path = Followers;
+			sourceTree = "<group>";
+		};
+		A2A41CE32A52B06F005DB375 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */,
+				A2A41CE62A52B15B005DB375 /* OptionView.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		A2A54E162A48D8D400D1DD7C = {
@@ -96,6 +121,8 @@
 		A2A54E322A48DB9000D1DD7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2A41CE32A52B06F005DB375 /* CommonViews */,
+				A2A41CDE2A51B831005DB375 /* Followers */,
 				A2920D9F2A5049AC004FBC34 /* Users */,
 				A2920DA02A5049C4004FBC34 /* UserDetails */,
 			);
@@ -107,6 +134,7 @@
 			children = (
 				A2A54E352A48DBBB00D1DD7C /* NetworkService.swift */,
 				A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */,
+				A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -182,7 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */,
+				A2A41CE02A51B840005DB375 /* Followers.swift in Sources */,
+				A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */,
+				A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */,
 				A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */,
+				A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */,
 				A2A54E362A48DBBB00D1DD7C /* NetworkService.swift in Sources */,
 				A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */,
 				A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */,

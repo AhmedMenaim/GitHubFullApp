@@ -36,7 +36,10 @@ struct HomeView: View {
         VStack {
           List {
             ForEach(usersArray) { user in
-              UserCard(user: user)
+              NavigationLink(
+                destination: UserDetails(username: user.userName)) {
+                UserCard(user: user)
+              }
             }
             .listRowSeparator(.hidden)
           }
@@ -45,7 +48,7 @@ struct HomeView: View {
             fetchUsers()
           }
         }
-        .navigationBarTitle("Movies")
+        .navigationBarTitle("Github Users")
       }
     }
 
