@@ -12,6 +12,7 @@
 		A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */; };
 		A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */; };
 		A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE62A52B15B005DB375 /* OptionView.swift */; };
+		A2A41CE92A53150E005DB375 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41CE82A53150E005DB375 /* UsersView.swift */; };
 		A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */; };
 		A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E242A48D8D500D1DD7C /* HomeView.swift */; };
 		A2A54E272A48D8D600D1DD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A54E262A48D8D600D1DD7C /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsNetworkResponse.swift; sourceTree = "<group>"; };
 		A2A41CE42A52B083005DB375 /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		A2A41CE62A52B15B005DB375 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		A2A41CE82A53150E005DB375 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		A2A54E1F2A48D8D500D1DD7C /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		A2A54E242A48D8D500D1DD7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = GithubUsers/Views/HomeView.swift; sourceTree = SOURCE_ROOT; };
@@ -53,6 +55,7 @@
 			children = (
 				A2A54E302A48D9A200D1DD7C /* UserCard.swift */,
 				A2A54E242A48D8D500D1DD7C /* HomeView.swift */,
+				A2A41CE82A53150E005DB375 /* UsersView.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				A2A54E362A48DBBB00D1DD7C /* NetworkService.swift in Sources */,
 				A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */,
 				A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */,
+				A2A41CE92A53150E005DB375 /* UsersView.swift in Sources */,
 				A2920DA22A5049F0004FBC34 /* UserDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
