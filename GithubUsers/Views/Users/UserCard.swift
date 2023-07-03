@@ -23,15 +23,7 @@ struct UserCard: View {
                 )
               .clipShape(RoundedRectangle(cornerRadius: 8))
           } placeholder: {
-            Image(systemName: "photo.fill")
-              .resizable()
-              .scaledToFit()
-              .frame(
-                width: 100,
-                height: 80,
-                alignment: .leading
-                )
-              .foregroundColor(.gray)
+            ImagePlaceholderView()
           }
 
         VStack(alignment: .leading, spacing: 8) {
