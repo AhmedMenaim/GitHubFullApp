@@ -26,7 +26,7 @@ struct UserDetailsNetworkResponse: Codable {
     case fullName = "name"
     case company
     case avatarURL = "avatar_url"
-    case userProfileURL = "url"
+    case userProfileURL = "html_url"
     case location
     case bio
     case twitterUsername = "twitter_username"
