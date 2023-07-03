@@ -158,6 +158,10 @@ struct UserDetails: View {
         .padding(24)
       }
     }
+    .navigationBarBackButtonHidden(true)
+    .navigationBarItems(leading: CustomizedBackButton())
+    .navigationTitle(username ?? "")
+    .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       fetchUserDetails()
     }
