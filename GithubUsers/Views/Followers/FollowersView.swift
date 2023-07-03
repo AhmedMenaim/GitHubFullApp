@@ -9,30 +9,46 @@ import SwiftUI
 
 struct FollowersView: View {
   @Binding var username: String
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @State var followersArray: [Follower] = []
+
+  let columns = Array(repeating: GridItem(), count: 2)
+
+  var body: some View {
+    ScrollView {
+      LazyVGrid(columns: columns, spacing: 10.0) {
+        ForEach($followersArray) { follower in
+          FollowerCard(follower: follower)
+        }
+      }
     }
+    .onAppear {
+      fetchUserFollowers()
+    }
+    .navigationBarBackButtonHidden(true)
+    .navigationBarItems(leading: CustomizedBackButton())
+    .navigationTitle("Followers")
+    .navigationBarTitleDisplayMode(.inline)
+  }
 }
 
 struct Followers_Previews: PreviewProvider {
     static var previews: some View {
       FollowersView(username: .constant("CryptoOo"))
+        .previewDevice("iPhone 14 Pro Max")
     }
 }
 
 extension FollowersView {
-  func fetchUsers() {
-    APIService.shared.getUsers { result in
+  func fetchUserFollowers() {
+    FollowersAPIClient.shared.getUserFollowers(username: username) { result in
       switch result {
         case .success(let response):
-          usersArray = response.map({ user in
-            User(
-              name: "\(user.userID ?? 0)",
-              userName: user.userName ?? "",
-              image: user.avatarURL ?? ""
+          followersArray = response.map({ follower in
+            Follower(
+              userName: follower.userName ?? "",
+              avatarURL: follower.avatarURL ?? ""
             )
           })
-          print(usersArray)
         case .failure(let failure):
           print(failure)
       }
