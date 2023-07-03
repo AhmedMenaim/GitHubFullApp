@@ -26,6 +26,7 @@ struct UserDetails: View {
   @State var location = ""
   @State var twitterUsername = ""
   @State var bio = ""
+  @State var profileURL = ""
   @State var isBioExisted = false
   @State var isTwitterExisted = false
   @State var isLocationExisted = false
@@ -131,16 +132,31 @@ struct UserDetails: View {
           maxHeight: .infinity,
           alignment: .top
         )
-        .padding(.top, 48)
+        .padding(.top, 36)
         .padding(.leading, 16)
         .padding(.trailing, 16)
       }
-      Button {
-        <#code#>
-      } label: {
-        <#code#>
-      }
 
+      if let profileLink = URL(string: profileURL) {
+        Link(destination: profileLink) {
+          HStack {
+            Text("See my Profile!")
+              .font(.title)
+              .fontWeight(.bold)
+              .foregroundColor(.white)
+          }
+          .frame(
+            minWidth: 240,
+            maxWidth: .infinity,
+            minHeight: 48,
+            maxHeight: 48,
+            alignment: .center
+          )
+          .background(.black.gradient)
+        }
+        .cornerRadius(8)
+        .padding(24)
+      }
     }
     .onAppear {
       fetchUserDetails()
@@ -209,15 +225,11 @@ extension UserDetails {
             isWorkExisted = true
           }
 
+          profileURL = userDetails?.userProfileURL ?? ""
 
         case .failure(let failure):
           print(failure)
       }
     }
   }
-}
-
-// MARK: - APIService Extension
-
-extension UserDetails {
 }
