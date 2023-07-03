@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ImagePlaceholderView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var body: some View {
+    Image(systemName: "photo.fill")
+      .resizable()
+      .scaledToFit()
+      .frame(
+        width: 100,
+        height: 80,
+        alignment: .leading
+      )
+      .foregroundColor(.gray)
+  }
 }
 
 struct ImagePlaceholderView_Previews: PreviewProvider {
