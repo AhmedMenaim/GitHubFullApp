@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RepositoriesView: View {
+struct UserRepositoriesView: View {
   @Binding var username: String
   @State var repositoriesArray: [Repository] = []
 
@@ -19,7 +19,7 @@ struct RepositoriesView: View {
 //              destination: UserDetails(username: user.userName)) {
 //                UserCard(user: user)
 //              }
-            RepositoryCard(repository: repository)
+            UserRepositoryCard(repository: repository)
           }
           .listRowSeparator(.visible)
         }
@@ -31,16 +31,16 @@ struct RepositoriesView: View {
     }
 }
 
-struct RepositoriesView_Previews: PreviewProvider {
+struct UserRepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
       let username = "cryptoOo"
-      RepositoriesView(username: .constant(username))
+      UserRepositoriesView(username: .constant(username))
     }
 }
 
-extension RepositoriesView {
+extension UserRepositoriesView {
   func fetchUserRepositories() {
-    RepositoriesAPIClient.shared.getUserRepositories(username: username) { result in
+    UserRepositoriesAPIClient.shared.getUserRepositories(username: username) { result in
       switch result {
         case .success(let response):
           repositoriesArray = response.map({ repository in

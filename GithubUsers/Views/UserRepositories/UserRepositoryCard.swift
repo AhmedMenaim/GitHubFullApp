@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RepositoryCard: View {
+struct UserRepositoryCard: View {
   @State var repository: Repository
   var body: some View {
     VStack(alignment: .leading, spacing: 8.0) {
@@ -62,7 +62,7 @@ struct RepositoryCard: View {
   }
 }
 
-struct RepositoryCard_Previews: PreviewProvider {
+struct UserRepositoryCard_Previews: PreviewProvider {
   static var previews: some View {
     let repository = Repository(
       repositoryName: "30daysoflaptops.github.io",
@@ -80,7 +80,7 @@ struct RepositoryCard_Previews: PreviewProvider {
       updatedAt: "Apr 5, 2023",
       licenseName: "MIT License"
     )
-    RepositoryCard(repository: repository)
+    UserRepositoryCard(repository: repository)
       .previewDevice("iPhone 14 Pro Max")
   }
 }
