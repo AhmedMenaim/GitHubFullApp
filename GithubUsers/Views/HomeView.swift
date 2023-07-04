@@ -45,7 +45,7 @@ struct HomeView: View {
       }
 
       NavigationView {
-        UsersView()
+        RepositoriesView()
           .navigationTitle("Repositories")
       }
       .tabItem {

@@ -75,7 +75,11 @@ struct UserDetails: View {
             OptionView(title: $followingTitle)
           }
           HStack(alignment: .center, spacing: 12.0) {
-            OptionView(title: $repositoriesTitle)
+            NavigationLink(destination: {
+              UserRepositoriesView(username: $username)
+            }, label: {
+              OptionView(title: $repositoriesTitle)
+            })
             OptionView(title: $gistsTitle)
           }
         }
