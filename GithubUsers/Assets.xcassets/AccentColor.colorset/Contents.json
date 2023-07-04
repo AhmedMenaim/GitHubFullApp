@@ -2,8 +2,8 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "ios",
-        "reference" : "darkTextColor"
+        "platform" : "watchos",
+        "reference" : "labelColor"
       },
       "idiom" : "universal"
     }
