@@ -15,7 +15,7 @@ struct UsersView: View {
       List {
         ForEach(usersViewModel.usersArray) { user in
           NavigationLink(
-            destination: UserDetails(username: user.userName)) {
+            destination: UserDetailsView(username: user.userName)) {
               UserCard(user: user)
             }
         }
