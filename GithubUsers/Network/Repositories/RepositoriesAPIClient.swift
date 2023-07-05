@@ -8,65 +8,44 @@
 import Foundation
 
 protocol RepositoriesAPIClientProtocol {
-  func getRepositories(
-    searchText: String,
-    completion: @escaping (Result<[RepositoryNetworkResponse],
-                           SessionDataTaskError>) -> Void
-  )
+  func getRepositories(searchText: String) async throws -> [RepositoryNetworkResponse]
 }
 
 class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
   static let shared = RepositoriesAPIClient()
 
-  func getRepositories(
-    searchText: String,
-    completion: @escaping (Result<[RepositoryNetworkResponse], SessionDataTaskError>) -> Void
-  ) {
+  func getRepositories(searchText: String) async throws -> [RepositoryNetworkResponse] {
     guard let url = URL(string: "https://api.github.com/search/repositories?q=\(searchText)") else {
-      completion(.failure(.notFound))
-      return
+      throw SessionDataTaskError.notFound
     }
-    let session = URLSession.shared
-    let request = URLRequest(url: url)
-    session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
 
-      if let error = error,
-         let response = response as? HTTPURLResponse {
-          let statusCode = response.statusCode
-          switch statusCode {
-              /// 1020 means dataNotAllowed -> Internet is closed
-              /// 1009 Internet is opened but no connection happens
-            case 1009, 1020:
-              completion(.failure(.noInternetConnection))
-              return
-            case 404:
-              completion(.failure(.notFound))
-              return
-            case 400:
-              completion(.failure(.notAuthorized))
-              return
-            case 500 ... 599:
-              completion(.failure(.server))
-              return
-            default:
-              completion(.failure(SessionDataTaskError.failWithError(error)))
-              return
-          }
-      }
-      guard let data = data
-      else {
-        completion(.failure(SessionDataTaskError.noData))
-        return
-      }
-      do {
-        let decoder = JSONDecoder()
-        let response = try decoder.decode(RepositoriesNetworkResponse.self, from: data)
-        debugPrint(response)
-        completion(.success(response.repositories ?? []))
 
-      } catch {
-        completion(.failure(SessionDataTaskError.failWithError(error)))
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard let response = response as? HTTPURLResponse,
+          response.statusCode == 200
+    else {
+      if let response = response as? HTTPURLResponse {
+        let statusCode = response.statusCode
+        switch statusCode {
+            /// 1020 means dataNotAllowed -> Internet is closed
+            /// 1009 Internet is opened but no connection happens
+          case 1009, 1020:
+            throw SessionDataTaskError.noInternetConnection
+          case 404:
+            throw SessionDataTaskError.notFound
+          case 400:
+            throw SessionDataTaskError.notAuthorized
+          case 500 ... 599:
+            throw SessionDataTaskError.server
+          default:
+            throw SessionDataTaskError.noData
+        }
       }
-    }).resume()
+      return []
+    }
+
+    let decoder = JSONDecoder()
+    let decodedData = try decoder.decode(RepositoriesNetworkResponse.self, from: data)
+    return decodedData.repositories ?? []
   }
 }

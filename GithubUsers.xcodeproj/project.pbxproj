@@ -35,6 +35,7 @@
 		A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E302A48D9A200D1DD7C /* UserCard.swift */; };
 		A2A54E362A48DBBB00D1DD7C /* UsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E352A48DBBB00D1DD7C /* UsersAPIClient.swift */; };
 		A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */; };
+		A2AF62DE2A556C4C00DD2148 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AF62DD2A556C4C00DD2148 /* RepositoriesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		A2A54E302A48D9A200D1DD7C /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		A2A54E352A48DBBB00D1DD7C /* UsersAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIClient.swift; sourceTree = "<group>"; };
 		A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkResponse.swift; sourceTree = "<group>"; };
+		A2AF62DD2A556C4C00DD2148 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +176,8 @@
 		A2A41D022A543B97005DB375 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				A2A41D032A543BAD005DB375 /* RepositoriesView.swift */,
+				A2AF62DB2A556C1E00DD2148 /* ViewModel */,
+				A2AF62DC2A556C2A00DD2148 /* Views */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -275,6 +278,22 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		A2AF62DB2A556C1E00DD2148 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2AF62DD2A556C4C00DD2148 /* RepositoriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A2AF62DC2A556C2A00DD2148 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41D032A543BAD005DB375 /* RepositoriesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,6 +377,7 @@
 				A2A54E362A48DBBB00D1DD7C /* UsersAPIClient.swift in Sources */,
 				A2A41CF12A5336CD005DB375 /* FollowersNetworkResponse.swift in Sources */,
 				A2A41D122A5493ED005DB375 /* FollowersViewModel.swift in Sources */,
+				A2AF62DE2A556C4C00DD2148 /* RepositoriesViewModel.swift in Sources */,
 				A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */,
 				A2A41CF32A533BCE005DB375 /* FollowerCard.swift in Sources */,
 				A2A41CFB2A53F10D005DB375 /* UserRepositoriesAPIClient.swift in Sources */,
