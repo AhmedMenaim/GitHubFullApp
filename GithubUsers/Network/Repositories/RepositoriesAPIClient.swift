@@ -18,8 +18,6 @@ class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
     guard let url = URL(string: "https://api.github.com/search/repositories?q=\(searchText)") else {
       throw SessionDataTaskError.notFound
     }
-
-
     let (data, response) = try await URLSession.shared.data(from: url)
     guard let response = response as? HTTPURLResponse,
           response.statusCode == 200
@@ -43,7 +41,6 @@ class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
       }
       return []
     }
-
     let decoder = JSONDecoder()
     let decodedData = try decoder.decode(RepositoriesNetworkResponse.self, from: data)
     return decodedData.repositories ?? []

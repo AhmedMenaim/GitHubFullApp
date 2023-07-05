@@ -58,7 +58,6 @@ struct UserRepositoryCard: View {
       }
       .foregroundColor(.gray.opacity(0.9))
     }
-//    .frame(maxWidth: .infinity, minHeight: 300)
   }
 }
 
