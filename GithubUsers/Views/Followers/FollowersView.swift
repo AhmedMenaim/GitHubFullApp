@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct FollowersView: View {
-  @Binding var username: String
-  @State var followersArray: [Follower] = []
+  //  @State var followersArray: [Follower] = []
 
+  @Binding var username: String
+  @StateObject private var followersViewModel = FollowersViewModel()
   let columns = Array(repeating: GridItem(), count: 2)
 
   var body: some View {
     ScrollView {
       LazyVGrid(columns: columns, spacing: 10.0) {
-        ForEach($followersArray) { follower in
+        ForEach(followersViewModel.followersArray) { follower in
           FollowerCard(follower: follower)
         }
       }
     }
     .onAppear {
-      fetchUserFollowers()
+      Task {
+        await followersViewModel.fetchUserFollowers(with: username)
+      }
+//      fetchUserFollowers()
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(leading: CustomizedBackButton())
@@ -36,22 +40,4 @@ struct Followers_Previews: PreviewProvider {
       FollowersView(username: .constant("CryptoOo"))
         .previewDevice("iPhone 14 Pro Max")
     }
-}
-
-extension FollowersView {
-  func fetchUserFollowers() {
-    FollowersAPIClient.shared.getUserFollowers(username: username) { result in
-      switch result {
-        case .success(let response):
-          followersArray = response.map({ follower in
-            Follower(
-              userName: follower.userName ?? "",
-              avatarURL: follower.avatarURL ?? ""
-            )
-          })
-        case .failure(let failure):
-          print(failure)
-      }
-    }
-  }
 }

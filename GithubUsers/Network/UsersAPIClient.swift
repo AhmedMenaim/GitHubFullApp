@@ -7,8 +7,12 @@
 
 import Foundation
 
-class APIService {
-  static let shared = APIService()
+protocol UsersAPIClientProtocol {
+  func getUsers() async throws -> [UserNetworkResponse]
+}
+
+class UsersAPIClient {
+  static let shared = UsersAPIClient()
 
   public func getUsers(
     completion: @escaping (Result<[UserNetworkResponse], SessionDataTaskError>) -> Void

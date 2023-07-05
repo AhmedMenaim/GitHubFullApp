@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FollowerCard: View {
-  @Binding var follower: Follower
+  var follower: Follower
 
     var body: some View {
       VStack(alignment: .center, spacing: 8.0) {
@@ -53,6 +53,6 @@ struct FollowerCard_Previews: PreviewProvider {
         userName: "CryptoOo",
         avatarURL: "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png/revision/latest/scale-to-width-down/1200?cb=20210223094656"
       )
-      FollowerCard(follower: .constant(follower))
+      FollowerCard(follower: follower)
     }
 }
