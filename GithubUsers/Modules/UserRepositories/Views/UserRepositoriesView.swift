@@ -29,6 +29,8 @@ struct UserRepositoriesView: View {
             await viewModel.fetchRepositories(with: username)
           }
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: CustomizedBackButton())
       }
     }
 }
