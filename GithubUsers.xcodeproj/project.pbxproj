@@ -26,12 +26,14 @@
 		A2A41D062A543E46005DB375 /* SearchNoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41D052A543E46005DB375 /* SearchNoResultsView.swift */; };
 		A2A41D082A547253005DB375 /* RepositoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41D072A547253005DB375 /* RepositoriesAPIClient.swift */; };
 		A2A41D0A2A5472BE005DB375 /* RepositoriesNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41D092A5472BE005DB375 /* RepositoriesNetworkResponse.swift */; };
+		A2A41D0F2A548725005DB375 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41D0E2A548725005DB375 /* UsersViewModel.swift */; };
+		A2A41D122A5493ED005DB375 /* FollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A41D112A5493ED005DB375 /* FollowersViewModel.swift */; };
 		A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */; };
 		A2A54E252A48D8D500D1DD7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E242A48D8D500D1DD7C /* HomeView.swift */; };
 		A2A54E272A48D8D600D1DD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A54E262A48D8D600D1DD7C /* Assets.xcassets */; };
 		A2A54E2A2A48D8D600D1DD7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A54E292A48D8D600D1DD7C /* Preview Assets.xcassets */; };
 		A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E302A48D9A200D1DD7C /* UserCard.swift */; };
-		A2A54E362A48DBBB00D1DD7C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E352A48DBBB00D1DD7C /* NetworkService.swift */; };
+		A2A54E362A48DBBB00D1DD7C /* UsersAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E352A48DBBB00D1DD7C /* UsersAPIClient.swift */; };
 		A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,13 +57,15 @@
 		A2A41D052A543E46005DB375 /* SearchNoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoResultsView.swift; sourceTree = "<group>"; };
 		A2A41D072A547253005DB375 /* RepositoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesAPIClient.swift; sourceTree = "<group>"; };
 		A2A41D092A5472BE005DB375 /* RepositoriesNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesNetworkResponse.swift; sourceTree = "<group>"; };
+		A2A41D0E2A548725005DB375 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		A2A41D112A5493ED005DB375 /* FollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewModel.swift; sourceTree = "<group>"; };
 		A2A54E1F2A48D8D500D1DD7C /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A54E222A48D8D500D1DD7C /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		A2A54E242A48D8D500D1DD7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = GithubUsers/Views/HomeView.swift; sourceTree = SOURCE_ROOT; };
 		A2A54E262A48D8D600D1DD7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2A54E292A48D8D600D1DD7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A2A54E302A48D9A200D1DD7C /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
-		A2A54E352A48DBBB00D1DD7C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A2A54E352A48DBBB00D1DD7C /* UsersAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIClient.swift; sourceTree = "<group>"; };
 		A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 		A2920D9F2A5049AC004FBC34 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				A2A41D0D2A548715005DB375 /* ViewModel */,
 				A2A54E302A48D9A200D1DD7C /* UserCard.swift */,
 				A2A54E242A48D8D500D1DD7C /* HomeView.swift */,
 				A2A41CE82A53150E005DB375 /* UsersView.swift */,
@@ -97,6 +102,7 @@
 		A2A41CDE2A51B831005DB375 /* Followers */ = {
 			isa = PBXGroup;
 			children = (
+				A2A41D102A5493DD005DB375 /* ViewModel */,
 				A2A41CDF2A51B840005DB375 /* FollowersView.swift */,
 				A2A41CF22A533BCE005DB375 /* FollowerCard.swift */,
 			);
@@ -190,6 +196,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A2A41D0D2A548715005DB375 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41D0E2A548725005DB375 /* UsersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A2A41D102A5493DD005DB375 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A2A41D112A5493ED005DB375 /* FollowersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A2A54E162A48D8D400D1DD7C = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +268,7 @@
 				A2A41D0B2A548260005DB375 /* UserRepositories */,
 				A2A41CF92A53F100005DB375 /* Repositories */,
 				A2A41CEC2A533663005DB375 /* Followers */,
-				A2A54E352A48DBBB00D1DD7C /* NetworkService.swift */,
+				A2A54E352A48DBBB00D1DD7C /* UsersAPIClient.swift */,
 				A2A54E372A48DC0700D1DD7C /* UserNetworkResponse.swift */,
 				A2A41CE12A51BC82005DB375 /* UserDetailsNetworkResponse.swift */,
 			);
@@ -333,8 +355,9 @@
 				A2A41CF62A53F0C3005DB375 /* UserRepositoriesView.swift in Sources */,
 				A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */,
 				A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */,
-				A2A54E362A48DBBB00D1DD7C /* NetworkService.swift in Sources */,
+				A2A54E362A48DBBB00D1DD7C /* UsersAPIClient.swift in Sources */,
 				A2A41CF12A5336CD005DB375 /* FollowersNetworkResponse.swift in Sources */,
+				A2A41D122A5493ED005DB375 /* FollowersViewModel.swift in Sources */,
 				A2A54E232A48D8D500D1DD7C /* GithubUsersApp.swift in Sources */,
 				A2A41CF32A533BCE005DB375 /* FollowerCard.swift in Sources */,
 				A2A41CFB2A53F10D005DB375 /* UserRepositoriesAPIClient.swift in Sources */,
@@ -342,6 +365,7 @@
 				A2A41CFE2A53F128005DB375 /* UserRepositoriesNetworkResponse.swift in Sources */,
 				A2A41D062A543E46005DB375 /* SearchNoResultsView.swift in Sources */,
 				A2A54E382A48DC0700D1DD7C /* UserNetworkResponse.swift in Sources */,
+				A2A41D0F2A548725005DB375 /* UsersViewModel.swift in Sources */,
 				A2A41CEB2A533034005DB375 /* CustomizedBackButton.swift in Sources */,
 				A2A41CE92A53150E005DB375 /* UsersView.swift in Sources */,
 				A2A41CF82A53F0D2005DB375 /* UserRepositoryCard.swift in Sources */,

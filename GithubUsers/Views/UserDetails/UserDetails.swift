@@ -194,11 +194,11 @@ struct UserDetails_Previews: PreviewProvider {
   }
 }
 
-// MARK: - APIService Extension
+// MARK: - UsersAPIClient Extension
 
 extension UserDetails {
   func fetchUserDetails() {
-    APIService.shared.getUserDetails(
+    UsersAPIClient.shared.getUserDetails(
       username: username
     ) { result in
       switch result {
