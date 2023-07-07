@@ -9,33 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
   @State var usersArray: [User] = []
-  //  usersArray = [
-  //    User(
-  //      name: "User1",
-  //      userName: "User1_1",
-  //      image: "user1"
-  //    ),
-  //    User(
-  //      name: "User2",
-  //      userName: "User2_2",
-  //      image: "user1"
-  //    ),
-  //    User(
-  //      name: "User3",
-  //      userName: "User3_3",
-  //      image: "user1"
-  //    ),
-  //    User(
-  //      name: "User4",
-  //      userName: "User4_4",
-  //      image: "user1"
-  //    ),
-  //  ]
+  private var moduleFactory = UsersModuleFactory()
   var body: some View {
     TabView {
       NavigationView {
-        UsersView()
-          .navigationTitle("Users")
+        if let usersView = moduleFactory.makeView() as? UsersView {
+          usersView
+            .navigationTitle("Users")
+        }
       }
       .tabItem {
         VStack {

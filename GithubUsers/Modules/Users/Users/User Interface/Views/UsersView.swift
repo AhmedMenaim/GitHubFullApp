@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+protocol UsersViewDependenciesProtocol {
+  var usersViewModel: UsersViewModel { get set }
+}
+
 struct UsersView: View {
-  @StateObject private var usersViewModel = UsersViewModel()
+  @ObservedObject private var usersViewModel: UsersViewModel
+
+  init(dependencies: UsersViewDependenciesProtocol) {
+    usersViewModel = dependencies.usersViewModel
+  }
 
   var body: some View {
     VStack {
       List {
-        ForEach(usersViewModel.usersArray) { user in
+        ForEach(usersViewModel.usersArray, id: \.self.id) { user in
           NavigationLink(
             destination: UserDetailsView(username: user.userName)) {
               UserCard(user: user)
@@ -29,10 +37,4 @@ struct UsersView: View {
       }
     }
   }
-}
-
-struct UsersView_Previews: PreviewProvider {
-    static var previews: some View {
-        UsersView()
-    }
 }
