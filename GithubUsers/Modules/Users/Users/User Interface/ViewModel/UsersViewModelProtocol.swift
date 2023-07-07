@@ -11,10 +11,10 @@ protocol UsersViewModelProtocol {
   func fetchUsers() async
 }
 
-protocol UserViewItemProtocol: Identifiable {
-  var id: UUID { get set }
-  var userName: String { get set }
-  var image: String { get set }
-  var userNameColor: Color { get set }
-  var userNameFont: Font { get set }
+struct UserViewItem: Identifiable, Hashable {
+  var id = UUID()
+  var userName: String
+  var image: String
+  var userNameColor: Color
+  var userNameFont: Font
 }

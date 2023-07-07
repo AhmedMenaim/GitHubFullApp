@@ -13,28 +13,30 @@ protocol UsersViewDependenciesProtocol {
 
 struct UsersView: View {
   @ObservedObject private var usersViewModel: UsersViewModel
+  @State private var selectedUser: UserViewItem?
 
   init(dependencies: UsersViewDependenciesProtocol) {
-    usersViewModel = dependencies.usersViewModel
+    self.usersViewModel = dependencies.usersViewModel
   }
 
   var body: some View {
     VStack {
-      List {
-        ForEach(usersViewModel.usersArray, id: \.self.id) { user in
-          NavigationLink(
-            destination: UserDetailsView(username: user.userName)) {
-              UserCard(user: user)
-            }
+      List(usersViewModel.usersArray, id: \.self, selection: $selectedUser) { user in
+        NavigationLink<UserCard, UserDetailsView?>(
+          destination: UserDetailsModuleFactory().makeView() as? UserDetailsView
+        ) {
+          UserCard(user: user)
         }
-        .listRowSeparator(.hidden)
-      }
-      .listStyle(.plain)
-      .onAppear {
-        Task {
-          await usersViewModel.fetchUsers()
+        .onChange(of: selectedUser, perform: { newValue in
+          UserDefaults.standard.set(newValue?.userName, forKey: "Username")
+        })
+      }.listRowSeparator(.hidden)
+        .listStyle(.plain)
+        .onAppear {
+          Task {
+            await usersViewModel.fetchUsers()
+          }
         }
-      }
     }
   }
 }

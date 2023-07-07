@@ -54,6 +54,12 @@
 		A2C9DBC82A5808250014A5DE /* UsersUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBC72A5808250014A5DE /* UsersUseCaseProtocol.swift */; };
 		A2C9DBCA2A5808580014A5DE /* UsersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBC92A5808580014A5DE /* UsersViewModelProtocol.swift */; };
 		A2C9DBCD2A5809D60014A5DE /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBCC2A5809D60014A5DE /* RepositoryError.swift */; };
+		A2C9DBD32A5813550014A5DE /* UserDetailsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD22A5813550014A5DE /* UserDetailsUseCaseProtocol.swift */; };
+		A2C9DBD52A58135A0014A5DE /* UserDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD42A58135A0014A5DE /* UserDetailsUseCase.swift */; };
+		A2C9DBD72A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD62A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift */; };
+		A2C9DBD92A5816E30014A5DE /* UserDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD82A5816E30014A5DE /* UserDetailsDataSource.swift */; };
+		A2C9DBDB2A5827670014A5DE /* UserDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBDA2A5827670014A5DE /* UserDetailsViewModelProtocol.swift */; };
+		A2C9DBDD2A584CE80014A5DE /* UserDetailsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +111,12 @@
 		A2C9DBC72A5808250014A5DE /* UsersUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersUseCaseProtocol.swift; sourceTree = "<group>"; };
 		A2C9DBC92A5808580014A5DE /* UsersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelProtocol.swift; sourceTree = "<group>"; };
 		A2C9DBCC2A5809D60014A5DE /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
+		A2C9DBD22A5813550014A5DE /* UserDetailsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		A2C9DBD42A58135A0014A5DE /* UserDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsUseCase.swift; sourceTree = "<group>"; };
+		A2C9DBD62A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsDataSourceProtocol.swift; sourceTree = "<group>"; };
+		A2C9DBD82A5816E30014A5DE /* UserDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsDataSource.swift; sourceTree = "<group>"; };
+		A2C9DBDA2A5827670014A5DE /* UserDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModuleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +143,9 @@
 		A2920DA02A5049C4004FBC34 /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A2AF62DF2A557C4F00DD2148 /* Views */,
-				A2AF62E02A557E6000DD2148 /* ViewModel */,
+				A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */,
+				A2C9DBCF2A5812DD0014A5DE /* BusinessLogic */,
+				A2C9DBCE2A5812C60014A5DE /* UserInterface */,
 			);
 			path = UserDetails;
 			sourceTree = "<group>";
@@ -314,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				A2AF62E12A557E7000DD2148 /* UserDetailsViewModel.swift */,
+				A2C9DBDA2A5827670014A5DE /* UserDetailsViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -438,8 +452,8 @@
 		A2AF62F62A55A41500DD2148 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				A2AF630E2A56A7C200DD2148 /* DataSource */,
 				A2AF63142A56AA4800DD2148 /* UseCase */,
+				A2AF630E2A56A7C200DD2148 /* DataSource */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -496,6 +510,42 @@
 			children = (
 				A2C9DBC72A5808250014A5DE /* UsersUseCaseProtocol.swift */,
 				A2AF62F72A55A42700DD2148 /* UsersUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A2C9DBCE2A5812C60014A5DE /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				A2AF62DF2A557C4F00DD2148 /* Views */,
+				A2AF62E02A557E6000DD2148 /* ViewModel */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		A2C9DBCF2A5812DD0014A5DE /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				A2C9DBD12A5813120014A5DE /* UseCase */,
+				A2C9DBD02A5813050014A5DE /* DataSource */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		A2C9DBD02A5813050014A5DE /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A2C9DBD62A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift */,
+				A2C9DBD82A5816E30014A5DE /* UserDetailsDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		A2C9DBD12A5813120014A5DE /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A2C9DBD22A5813550014A5DE /* UserDetailsUseCaseProtocol.swift */,
+				A2C9DBD42A58135A0014A5DE /* UserDetailsUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -570,20 +620,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C9DBD72A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift in Sources */,
 				A2A41D042A543BAD005DB375 /* RepositoriesView.swift in Sources */,
 				A2A41D082A547253005DB375 /* RepositoriesAPIClient.swift in Sources */,
 				A2A41D012A541B03005DB375 /* String+Extensions.swift in Sources */,
+				A2C9DBDD2A584CE80014A5DE /* UserDetailsModuleFactory.swift in Sources */,
 				A2AF62FC2A55BF5100DD2148 /* APIRequestConfiguration.swift in Sources */,
 				A2AF62E62A55939200DD2148 /* UserRepositoriesViewModel.swift in Sources */,
 				A2A41CE02A51B840005DB375 /* FollowersView.swift in Sources */,
+				A2C9DBD32A5813550014A5DE /* UserDetailsUseCaseProtocol.swift in Sources */,
 				A2AF62FA2A55BE1100DD2148 /* BaseAPIClient.swift in Sources */,
 				A2AF63102A56A7D100DD2148 /* UsersDataSourceProtocol.swift in Sources */,
 				A2A41CE22A51BC82005DB375 /* UserDetailsNetworkResponse.swift in Sources */,
 				A2C9DBC82A5808250014A5DE /* UsersUseCaseProtocol.swift in Sources */,
 				A2A41CE72A52B15B005DB375 /* OptionView.swift in Sources */,
 				A2A41CF62A53F0C3005DB375 /* UserRepositoriesView.swift in Sources */,
+				A2C9DBD52A58135A0014A5DE /* UserDetailsUseCase.swift in Sources */,
 				A2A54E312A48D9A200D1DD7C /* UserCard.swift in Sources */,
 				A2AF63022A55C73000DD2148 /* BaseAPIRequest.swift in Sources */,
+				A2C9DBD92A5816E30014A5DE /* UserDetailsDataSource.swift in Sources */,
 				A2A41CE52A52B083005DB375 /* ImagePlaceholderView.swift in Sources */,
 				A2AF62F82A55A42700DD2148 /* UsersUseCase.swift in Sources */,
 				A2AF630D2A56A48E00DD2148 /* SessionDataTaskError.swift in Sources */,
@@ -612,6 +667,7 @@
 				A2AF63162A56B96300DD2148 /* UsersModuleFactory.swift in Sources */,
 				A2920DA22A5049F0004FBC34 /* UserDetailsView.swift in Sources */,
 				A2AF63082A56934C00DD2148 /* UsersRepository.swift in Sources */,
+				A2C9DBDB2A5827670014A5DE /* UserDetailsViewModelProtocol.swift in Sources */,
 				A2A41D0A2A5472BE005DB375 /* RepositoriesNetworkResponse.swift in Sources */,
 				A2AF62FE2A55C17500DD2148 /* Dictionary+Extensions.swift in Sources */,
 				A2C9DBCD2A5809D60014A5DE /* RepositoryError.swift in Sources */,

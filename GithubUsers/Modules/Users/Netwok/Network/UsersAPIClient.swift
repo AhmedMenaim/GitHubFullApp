@@ -9,11 +9,10 @@ import Foundation
 
 protocol UsersAPIClientProtocol {
   func getUsers() async throws -> [UserNetworkResponse]?
-  func getUserDetails(username: String) async throws -> UserDetailsNetworkResponse?
+  func getUserDetails(parameters: UserDetailsParametersProtocol) async throws -> UserDetailsNetworkResponse?
 }
 
 class UsersAPIClient: UsersAPIClientProtocol {
-
   let client: BaseAPIClientProtocol
   init(client: BaseAPIClientProtocol) {
     self.client = client
@@ -26,36 +25,12 @@ class UsersAPIClient: UsersAPIClientProtocol {
     return users
   }
 
-  func getUserDetails(username: String) async throws -> UserDetailsNetworkResponse? {
-    guard let url = URL(string: "https://api.github.com/users/\(username)") else {
-      throw SessionDataTaskError.notFound
-    }
-
-    let (data, response) = try await URLSession.shared.data(from: url)
-    guard let response = response as? HTTPURLResponse,
-          response.statusCode == 200
-    else {
-      if let response = response as? HTTPURLResponse {
-        let statusCode = response.statusCode
-        switch statusCode {
-            /// 1020 means dataNotAllowed -> Internet is closed
-            /// 1009 Internet is opened but no connection happens
-          case 1009, 1020:
-            throw SessionDataTaskError.noInternetConnection
-          case 404:
-            throw SessionDataTaskError.notFound
-          case 400:
-            throw SessionDataTaskError.notAuthorized
-          case 500 ... 599:
-            throw SessionDataTaskError.server
-          default:
-            throw SessionDataTaskError.noData
-        }
-      }
-      return nil
-    }
-    let decoder = JSONDecoder()
-    let decodedData = try decoder.decode(UserDetailsNetworkResponse.self, from: data)
-    return decodedData
+  func getUserDetails(parameters: UserDetailsParametersProtocol)
+    async throws -> UserDetailsNetworkResponse?
+  {
+    let request = UsersAPIRequest.getUserDetails(parameters: parameters)
+    var userDetails: UserDetailsNetworkResponse?
+    userDetails = try await client.perform(request)
+    return userDetails
   }
 }

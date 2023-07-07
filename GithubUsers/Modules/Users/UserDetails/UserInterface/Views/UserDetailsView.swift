@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+protocol UserDetailsViewDependenciesProtocol {
+  var viewModel: UserDetailsViewModel { get set }
+}
+
 struct UserDetailsView: View {
   // MARK: - Properties
 
-  @StateObject private var viewModel = UserDetailsViewModel(username: "")
-  @State var username: String = ""
+  @ObservedObject private var viewModel: UserDetailsViewModel
+
+  init(dependencies: UserDetailsViewDependenciesProtocol) {
+    self.viewModel = dependencies.viewModel
+  }
+
+  @State var username = ""
 
   // MARK: - Views
 
@@ -69,7 +78,7 @@ struct UserDetailsView: View {
           alignment: .leading,
           spacing: 8.0
         ) {
-          if viewModel.isWorkExisted {
+          if viewModel.userDetails?.statuses.isWorkExisted ?? false {
             HStack {
               Text("Companies:")
                 .fontWeight(.black)
@@ -79,7 +88,7 @@ struct UserDetailsView: View {
             .frame(minWidth: 200, maxWidth: .infinity, alignment: .leading)
           }
 
-          if viewModel.isLocationExisted {
+          if viewModel.userDetails?.statuses.isLocationExisted ?? false {
             HStack {
               Text("Location:")
                 .fontWeight(.black)
@@ -89,18 +98,17 @@ struct UserDetailsView: View {
             .frame(minWidth: 200, maxWidth: .infinity, alignment: .leading)
           }
 
-          if viewModel.isTwitterExisted {
+          if viewModel.userDetails?.statuses.isTwitterExisted ?? false {
             HStack {
               Text("Twiter: ")
                 .fontWeight(.black)
                 .font(.title3)
               Text("@\(viewModel.userDetails?.twitterUsername ?? "")")
-
             }
             .frame(minWidth: 200, maxWidth: .infinity, alignment: .leading)
           }
 
-          if viewModel.isBioExisted {
+          if viewModel.userDetails?.statuses.isBioExisted ?? false {
             VStack(spacing: 8.0) {
               Text("Bio:")
                 .underline()
@@ -148,16 +156,8 @@ struct UserDetailsView: View {
     .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       Task {
-        await viewModel.fetchUserDetails(with: username)
+        await viewModel.userDetailsViewItem()
       }
     }
-  }
-}
-
-// MARK: - Preview
-
-struct UserDetailsView_Previews: PreviewProvider {
-  static var previews: some View {
-    UserDetailsView()
   }
 }

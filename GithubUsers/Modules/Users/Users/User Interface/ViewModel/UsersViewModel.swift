@@ -13,17 +13,19 @@ protocol UsersViewModelDependenciesProtocol {
 
 @MainActor
 final class UsersViewModel: ObservableObject {
-
   // MARK: - Properties
-  @Published private (set) var usersArray: [any UserViewItemProtocol] = []
+
+  @Published private(set) var usersArray: [UserViewItem] = []
   private let useCase: UsersUseCase
 
   // MARK: - Init
+
   init(dependencies: UsersViewModelDependenciesProtocol) {
-    useCase = dependencies.useCase
+    self.useCase = dependencies.useCase
   }
 
   // MARK: - Constants
+
   private enum Constants {
     static let nameFont: Font = .title2.weight(.heavy)
     static let nameColor: Color = .purple
@@ -31,29 +33,21 @@ final class UsersViewModel: ObservableObject {
 }
 
 // MARK: - UsersViewModelProtocol
+
 extension UsersViewModel: UsersViewModelProtocol {
   func fetchUsers() async {
     do {
       let users = try await useCase.fetchUsers()
-      self.usersArray = users.map({ user in
+      usersArray = users.map { user in
         UserViewItem(
           userName: user.userName,
           image: user.image,
           userNameColor: Constants.nameColor,
           userNameFont: Constants.nameFont
         )
-      })
-    } catch let error {
+      }
+    } catch {
       print(error)
     }
   }
-}
-
-// MARK: - UserViewItemProtocol
-private struct UserViewItem: UserViewItemProtocol {
-  var id = UUID()
-  var userName: String
-  var image: String
-  var userNameColor: Color
-  var userNameFont: Font
 }
