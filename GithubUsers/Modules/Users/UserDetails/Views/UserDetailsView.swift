@@ -10,7 +10,7 @@ import SwiftUI
 struct UserDetailsView: View {
   // MARK: - Properties
 
-  @StateObject private var viewModel = UserDetailsViewModel()
+  @StateObject private var viewModel = UserDetailsViewModel(username: "")
   @State var username: String = ""
 
   // MARK: - Views
