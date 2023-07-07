@@ -8,27 +8,27 @@
 import Foundation
 
 enum UsersAPIRequest: APIRequestConfiguration {
-    case getUsers
+  case getUsers
 
-    var method: HTTPMethod {
-        switch self {
-        case .getUsers:
-            return .GET
-        }
+  var method: HTTPMethod {
+    switch self {
+      case .getUsers:
+        return .GET
     }
+  }
+  
+  var path: String {
+    switch self {
+      case .getUsers:
+        return "https://api.github.com/users"
+    }
+  }
 
-    var path: String {
-        switch self {
-        case .getUsers:
-            return "https://api.github.com/users"
-        }
-    }
+  var parameters: Parameters? {
+    return nil
+  }
 
-    var parameters: Parameters? {
-            return nil
-    }
-
-    var headers: HTTPHeaders? {
-        return nil
-    }
+  var headers: HTTPHeaders? {
+    return nil
+  }
 }
