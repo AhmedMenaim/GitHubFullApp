@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+enum SessionDataTaskError: Error {
+  case failWithError(Error)
+  case noData
+  case notFound
+  case notAuthorized
+  case server
+  case noInternetConnection
+}
