@@ -51,8 +51,7 @@ extension UsersRepository: UsersRepositoryProtocol {
         UsersRepositoryResponse(
           userName: user.userName,
           userID: user.userID,
-          avatarURL: user.avatarURL,
-          userProfileURL: user.userProfileURL
+          avatarURL: user.avatarURL
         )
       }
     } catch {

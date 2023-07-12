@@ -13,7 +13,6 @@ protocol UsersUseCaseProtocol {
 
 struct User: Identifiable {
   var id = UUID()
-  var name: String
   var userName: String
   var image: String
 }

@@ -35,7 +35,6 @@ extension UsersUseCase: UsersUseCaseProtocol {
     }
     dataSource.usersArray = users.map { user in
       User(
-        name: "\(user.userID ?? 0)",
         userName: user.userName ?? "",
         image: user.avatarURL ?? ""
       )

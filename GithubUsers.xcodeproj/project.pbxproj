@@ -189,6 +189,13 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+		A28891AA2A5ECAF3003B8AAB /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
 		A2920D9F2A5049AC004FBC34 /* Users */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +228,7 @@
 		A29342962A5D5F0C00372C15 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				A28891AA2A5ECAF3003B8AAB /* UserDetails */,
 				A29342B22A5DD52200372C15 /* UsersResponses */,
 				A28891A92A5EC9D5003B8AAB /* Users */,
 			);

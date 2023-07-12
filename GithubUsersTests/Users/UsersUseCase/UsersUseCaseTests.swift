@@ -9,7 +9,6 @@ import XCTest
 @testable import GithubUsers
 
 final class UsersUseCaseTests: XCTestCase {
-
   private var sut: UsersUseCaseProtocol!
 
   override func setUp() {
@@ -22,24 +21,40 @@ final class UsersUseCaseTests: XCTestCase {
   }
 
   override func tearDown() {
-      sut = nil
+    sut = nil
   }
 
-  func testFetchUsers() async {
+  func test_returns_fetched_users_not_empty() async {
+    do {
+      let users = try await sut.fetchUsers()
+      XCTAssertFalse(users.isEmpty)
+    } catch {
+      XCTAssertNotNil(error, "Test failed because of the \(error)")
+    }
+  }
+
+  func test_returns_correct_fetched_users_count() async {
     do {
       let users = try await sut.fetchUsers()
       XCTAssertEqual(users.count, 3)
+    } catch {
+      XCTAssertNotNil(error, "Test failed because of the \(error)")
+    }
+  }
+
+  func test_returns_correct_fetched_users_mapping() async {
+    do {
+      let users = try await sut.fetchUsers()
       XCTAssertEqual(users[0].userName, "mojombo")
-      XCTAssertEqual(users[2].image, "https://avatars.githubusercontent.com/u/3?v=4")
-      /// Just to test failure
-      /// XCTAssertEqual(users[2].image, "https://avatars.githubusercontent.com/")
-    } catch let error {
+      XCTAssertEqual(users[1].image, "https://avatars.githubusercontent.com/u/2?v=4")
+    } catch {
       XCTAssertNotNil(error, "Test failed because of the \(error)")
     }
   }
 }
 
 // MARK: - UsersUseCaseDependenciesProtocol
+
 private struct UsersUseCaseDependencies: UsersUseCaseDependenciesProtocol {
   var dataSource: UsersDataSourceProtocol
   var repository: UsersRepositoryProtocol

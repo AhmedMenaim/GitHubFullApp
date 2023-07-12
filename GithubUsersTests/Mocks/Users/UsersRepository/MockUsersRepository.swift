@@ -11,31 +11,28 @@ import XCTest
 final class MockUsersRepository { }
 
 extension MockUsersRepository: UsersRepositoryProtocol {
-  func getUsers() async throws -> [any UsersRepositoryResponseProtocol]? {
+  func getUsers() async throws -> [UsersRepositoryResponseProtocol]? {
     [
       UsersRepositoryResponse(
         userName: "mojombo",
         userID: 1,
-        avatarURL: "https://avatars.githubusercontent.com/u/1?v=4",
-        userProfileURL: "https://github.com/mojombo"
+        avatarURL: "https://avatars.githubusercontent.com/u/1?v=4"
       ),
       UsersRepositoryResponse(
         userName: "defunkt",
         userID: 2,
-        avatarURL: "https://avatars.githubusercontent.com/u/2?v=4",
-        userProfileURL: "https://github.com/defunkt"
+        avatarURL: "https://avatars.githubusercontent.com/u/2?v=4"
       ),
       UsersRepositoryResponse(
         userName: "pjhyett",
         userID: 3,
-        avatarURL: "https://avatars.githubusercontent.com/u/3?v=4",
-        userProfileURL: "https://github.com/pjhyett"
+        avatarURL: "https://avatars.githubusercontent.com/u/3?v=4"
       ),
     ]
   }
 
   func getUserDetails(parameters: UserDetailsParametersProtocol) async throws
-    -> (any UserDetailsRepositoryResponseProtocol)?
+    -> (UserDetailsRepositoryResponseProtocol)?
   {
     UserDetailsRepositoryResponse(
       userName: "CryptoOo",
