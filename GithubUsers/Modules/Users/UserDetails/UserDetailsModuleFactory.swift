@@ -38,7 +38,7 @@ extension UserDetailsModuleFactory: UserDetailsModuleFactoryProtocol {
 // MARK: - UserDetailsViewModelDependenciesProtocol
 
 private struct UserDetailsViewModelDependencies: UserDetailsViewModelDependenciesProtocol {
-  var useCase: UserDetailsUseCase
+  var useCase: UserDetailsUseCaseProtocol
 }
 
 // MARK: - UserDetailsUseCaseDependenciesProtocol
@@ -55,6 +55,7 @@ private struct UserDetailsViewDependencies: UserDetailsViewDependenciesProtocol 
 }
 
 // MARK: - UsersRepositoryDependenciesProtocol
+
 private struct UsersRepositoryDependencies: UsersRepositoryDependenciesProtocol {
   var client: UsersAPIClientProtocol
 }

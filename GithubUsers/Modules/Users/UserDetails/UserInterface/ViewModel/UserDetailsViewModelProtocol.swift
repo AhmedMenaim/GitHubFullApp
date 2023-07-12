@@ -8,6 +8,7 @@
 import SwiftUI
 
 protocol UserDetailsViewModelProtocol {
+  var userDetails: UserDetailsViewItemProtocol? { get }
   func userDetailsViewItem() async
 }
 

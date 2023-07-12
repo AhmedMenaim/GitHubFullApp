@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol UserDetailsViewModelDependenciesProtocol {
-  var useCase: UserDetailsUseCase { get }
+  var useCase: UserDetailsUseCaseProtocol { get }
 }
 
 @MainActor
@@ -24,8 +24,8 @@ final class UserDetailsViewModel: ObservableObject {
 
   // MARK: - Properties
 
-  private let useCase: UserDetailsUseCase
-  @Published private(set) var userDetails: UserDetailsViewItemProtocol?
+  private let useCase: UserDetailsUseCaseProtocol
+  @Published var userDetails: UserDetailsViewItemProtocol?
   var repositories = ""
   var gists = ""
   var followers = ""
