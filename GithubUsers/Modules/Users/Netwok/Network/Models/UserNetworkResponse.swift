@@ -17,6 +17,6 @@ struct UserNetworkResponse: Codable {
   case userName = "login"
   case userID = "id"
   case avatarURL = "avatar_url"
-  case userProfileURL = "url"
+  case userProfileURL = "html_url"
   }
 }

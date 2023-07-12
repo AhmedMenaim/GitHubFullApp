@@ -8,15 +8,15 @@
 import SwiftUI
 
 protocol UsersViewModelDependenciesProtocol {
-  var useCase: UsersUseCase { get }
+  var useCase: UsersUseCaseProtocol { get }
 }
 
 @MainActor
 final class UsersViewModel: ObservableObject {
   // MARK: - Properties
 
-  @Published private(set) var usersArray: [UserViewItem] = []
-  private let useCase: UsersUseCase
+  @Published var usersArray: [UserViewItem] = []
+  private let useCase: UsersUseCaseProtocol
 
   // MARK: - Init
 

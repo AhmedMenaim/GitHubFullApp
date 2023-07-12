@@ -7,10 +7,19 @@
 
 import Foundation
 
+protocol UsersRepositoryDependenciesProtocol {
+  var client: UsersAPIClientProtocol { get }
+}
+
 struct UsersRepository {
-  private let client = UsersAPIClient(client: BaseAPIClient())
+
+  init(dependencies: UsersRepositoryDependenciesProtocol) {
+    self.client = dependencies.client
+  }
 
   // MARK: - Privates
+
+  private let client: UsersAPIClientProtocol
 
   private func convert(_ response: UserDetailsNetworkResponse?)
     -> UserDetailsRepositoryResponseProtocol

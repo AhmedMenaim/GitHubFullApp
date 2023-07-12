@@ -8,6 +8,7 @@
 import SwiftUI
 
 protocol UsersViewModelProtocol {
+  var usersArray: [UserViewItem] { get set }
   func fetchUsers() async
 }
 

@@ -17,9 +17,13 @@ final class UsersModuleFactory {}
 extension UsersModuleFactory: UsersModuleFactoryProtocol {
   @MainActor
   func makeView() -> any View {
+    let repositoryDependencies = UsersRepositoryDependencies(
+      client: UsersAPIClient(client: BaseAPIClient())
+    )
+    let repository = UsersRepository(dependencies: repositoryDependencies)
     let useCaseDependencies = UsersUseCaseDependencies(
       dataSource: UsersDataSource(),
-      repository: UsersRepository()
+      repository: repository
     )
     let useCase = UsersUseCase(dependencies: useCaseDependencies)
     let viewModelDependencies = UsersViewModelDependencies(useCase: useCase)
@@ -32,7 +36,7 @@ extension UsersModuleFactory: UsersModuleFactoryProtocol {
 
 // MARK: - UsersViewModelDependenciesProtocol
 private struct UsersViewModelDependencies: UsersViewModelDependenciesProtocol {
-  var useCase: UsersUseCase
+  var useCase: UsersUseCaseProtocol
 }
 
 // MARK: - UsersUseCaseDependenciesProtocol
@@ -44,4 +48,9 @@ private struct UsersUseCaseDependencies: UsersUseCaseDependenciesProtocol {
 // MARK: - UsersViewDependenciesProtocol
 private struct UsersViewDependencies: UsersViewDependenciesProtocol {
   var usersViewModel: UsersViewModel
+}
+
+// MARK: - UsersRepositoryDependenciesProtocol
+private struct UsersRepositoryDependencies: UsersRepositoryDependenciesProtocol {
+  var client: UsersAPIClientProtocol
 }
