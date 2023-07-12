@@ -27,4 +27,12 @@ extension MockUsersUseCase: UsersUseCaseProtocol {
       ),
     ]
   }
+
+  func notifyLoading() -> Bool {
+    true
+  }
+
+  func stopLoading() -> Bool {
+    false
+  }
 }

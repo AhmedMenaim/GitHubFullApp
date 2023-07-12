@@ -30,6 +30,7 @@ final class UsersUseCase {
 
 extension UsersUseCase: UsersUseCaseProtocol {
   func fetchUsers() async throws -> [User] {
+    dataSource.isLoading = true
     guard let users = try await repository.getUsers() else {
       return []
     }
@@ -39,6 +40,15 @@ extension UsersUseCase: UsersUseCaseProtocol {
         image: user.avatarURL ?? ""
       )
     }
+    dataSource.isLoading = false
     return dataSource.usersArray
+  }
+
+  func notifyLoading() -> Bool {
+    dataSource.isLoading
+  }
+
+  func stopLoading() -> Bool {
+    dataSource.isLoading
   }
 }

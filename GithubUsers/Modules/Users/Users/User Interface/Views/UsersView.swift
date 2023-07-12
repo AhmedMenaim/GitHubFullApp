@@ -21,22 +21,26 @@ struct UsersView: View {
 
   var body: some View {
     VStack {
-      List(usersViewModel.usersArray, id: \.self, selection: $selectedUser) { user in
-        NavigationLink<UserCard, UserDetailsView?>(
-          destination: UserDetailsModuleFactory().makeView() as? UserDetailsView
-        ) {
-          UserCard(user: user)
-        }
-        .onChange(of: selectedUser, perform: { newValue in
-          UserDefaults.standard.set(newValue?.userName, forKey: "Username")
-        })
-      }.listRowSeparator(.hidden)
-        .listStyle(.plain)
-        .onAppear {
-          Task {
-            await usersViewModel.fetchUsers()
+      if usersViewModel.isLoading {
+        ProgressView()
+      } else {
+        List(usersViewModel.usersArray, id: \.self, selection: $selectedUser) { user in
+          NavigationLink<UserCard, UserDetailsView?>(
+            destination: UserDetailsModuleFactory().makeView() as? UserDetailsView
+          ) {
+            UserCard(user: user)
           }
-        }
+          .onChange(of: selectedUser, perform: { newValue in
+            UserDefaults.standard.set(newValue?.userName, forKey: "Username")
+          })
+        }.listRowSeparator(.hidden)
+          .listStyle(.plain)
+      }
+    }
+    .onAppear {
+      Task {
+        await usersViewModel.fetchUsers()
+      }
     }
   }
 }

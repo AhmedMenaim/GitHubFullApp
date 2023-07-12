@@ -10,16 +10,25 @@ import XCTest
 
 final class MockUsersDataSource: XCTestCase {
   var users: [User] = []
+  var isLoadingWorking = true
 }
 
 extension MockUsersDataSource: UsersDataSourceProtocol {
+  var isLoading: Bool {
+    get {
+      isLoadingWorking
+    }
+    set {
+      isLoadingWorking = newValue
+    }
+  }
 
   var usersArray: [User] {
     get {
-      return users
+      users
     }
     set {
-      self.users = newValue
+      users = newValue
     }
   }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 protocol UsersUseCaseProtocol {
   func fetchUsers() async throws -> [User]
+  func notifyLoading() -> Bool
+  func stopLoading() -> Bool
 }
 
 struct User: Identifiable {

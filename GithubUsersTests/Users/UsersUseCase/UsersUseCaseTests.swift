@@ -51,6 +51,26 @@ final class UsersUseCaseTests: XCTestCase {
       XCTAssertNotNil(error, "Test failed because of the \(error)")
     }
   }
+
+  func test_returns_loading_starting_status() {
+    let actualValue = sut.notifyLoading()
+    XCTAssertEqual(actualValue, true)
+  }
+
+  func test_returns_loading_stopped_status_before_fetching_users() {
+    let actualValue = sut.stopLoading()
+    XCTAssertEqual(actualValue, true)
+  }
+
+  func test_returns_loading_stopped_status_after_fetching_users() async {
+    do {
+      let _ = try await sut.fetchUsers()
+      let actualValue = sut.stopLoading()
+      XCTAssertEqual(actualValue, false)
+    } catch {
+      XCTAssertNotNil(error, "Test failed because of the \(error)")
+    }
+  }
 }
 
 // MARK: - UsersUseCaseDependenciesProtocol

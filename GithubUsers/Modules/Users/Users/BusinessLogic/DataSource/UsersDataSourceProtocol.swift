@@ -9,4 +9,5 @@ import Foundation
 
 protocol UsersDataSourceProtocol {
   var usersArray: [User] { get set }
+  var isLoading: Bool { get set }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 struct UsersDataSource: UsersDataSourceProtocol {
   var usersArray: [User] = []
+  var isLoading = true
 }
