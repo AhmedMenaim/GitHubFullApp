@@ -5,21 +5,13 @@
 //  Created by Menaim on 01/07/2023.
 //
 
+import Resolver
 import SwiftUI
-
-protocol UserDetailsViewDependenciesProtocol {
-  var viewModel: UserDetailsViewModel { get set }
-}
 
 struct UserDetailsView: View {
   // MARK: - Properties
 
-  @ObservedObject private var viewModel: UserDetailsViewModel
-
-  init(dependencies: UserDetailsViewDependenciesProtocol) {
-    self.viewModel = dependencies.viewModel
-  }
-
+  @ObservedObject private var viewModel: UserDetailsViewModel = Resolver.resolve()
   @State var username = ""
 
   // MARK: - Views

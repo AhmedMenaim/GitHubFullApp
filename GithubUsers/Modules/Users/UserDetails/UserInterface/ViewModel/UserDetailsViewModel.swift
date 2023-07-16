@@ -5,14 +5,11 @@
 //  Created by Menaim on 05/07/2023.
 //
 
+import Resolver
 import SwiftUI
 
-protocol UserDetailsViewModelDependenciesProtocol {
-  var useCase: UserDetailsUseCaseProtocol { get }
-}
-
 @MainActor
-final class UserDetailsViewModel: ObservableObject {
+final class UserDetailsViewModel {
   // MARK: - Constants
 
   private enum Constants {
@@ -24,18 +21,12 @@ final class UserDetailsViewModel: ObservableObject {
 
   // MARK: - Properties
 
-  private let useCase: UserDetailsUseCaseProtocol
+  private var useCase: UserDetailsUseCaseProtocol = Resolver.resolve()
   @Published var userDetails: UserDetailsViewItemProtocol?
   var repositories = ""
   var gists = ""
   var followers = ""
   var following = ""
-
-  // MARK: - Life Cycle
-
-  init(dependencies: UserDetailsViewModelDependenciesProtocol) {
-    self.useCase = dependencies.useCase
-  }
 }
 
 // MARK: - UserDetailsViewModelProtocol
@@ -79,11 +70,6 @@ extension UserDetailsViewModel: UserDetailsViewModelProtocol {
       print(error)
     }
   }
-}
-
-private struct UserDetailsUseCaseDependencies: UserDetailsUseCaseDependenciesProtocol {
-  var dataSource: UserDetailsDataSourceProtocol
-  var repository: UsersRepositoryProtocol
 }
 
 // MARK: - UserDetailsViewItemProtocol

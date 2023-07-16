@@ -6,24 +6,13 @@
 //
 
 import Foundation
-
-protocol UserDetailsUseCaseDependenciesProtocol {
-  var dataSource: UserDetailsDataSourceProtocol { get }
-  var repository: UsersRepositoryProtocol { get }
-}
+import Resolver
 
 final class UserDetailsUseCase {
   // MARK: - Properties
 
-  private var dataSource: UserDetailsDataSourceProtocol
-  private let repository: UsersRepositoryProtocol
-
-  // MARK: - Init
-
-  init(dependencies: UserDetailsUseCaseDependenciesProtocol) {
-    self.dataSource = dependencies.dataSource
-    self.repository = dependencies.repository
-  }
+  private var dataSource: UserDetailsDataSourceProtocol = Resolver.resolve()
+  private var repository: UsersRepositoryProtocol = Resolver.resolve()
 
   // MARK: - Privates
 

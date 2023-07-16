@@ -75,7 +75,6 @@
 		A2C9DBD72A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD62A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift */; };
 		A2C9DBD92A5816E30014A5DE /* UserDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBD82A5816E30014A5DE /* UserDetailsDataSource.swift */; };
 		A2C9DBDB2A5827670014A5DE /* UserDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBDA2A5827670014A5DE /* UserDetailsViewModelProtocol.swift */; };
-		A2C9DBDD2A584CE80014A5DE /* UserDetailsModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,7 +155,6 @@
 		A2C9DBD62A5816DF0014A5DE /* UserDetailsDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsDataSourceProtocol.swift; sourceTree = "<group>"; };
 		A2C9DBD82A5816E30014A5DE /* UserDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsDataSource.swift; sourceTree = "<group>"; };
 		A2C9DBDA2A5827670014A5DE /* UserDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
-		A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModuleFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +268,6 @@
 		A2920DA02A5049C4004FBC34 /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A2C9DBDC2A584CE80014A5DE /* UserDetailsModuleFactory.swift */,
 				A2C9DBCF2A5812DD0014A5DE /* BusinessLogic */,
 				A2C9DBCE2A5812C60014A5DE /* UserInterface */,
 			);
@@ -896,7 +893,6 @@
 				A2A41D042A543BAD005DB375 /* RepositoriesView.swift in Sources */,
 				A2A41D082A547253005DB375 /* RepositoriesAPIClient.swift in Sources */,
 				A2A41D012A541B03005DB375 /* String+Extensions.swift in Sources */,
-				A2C9DBDD2A584CE80014A5DE /* UserDetailsModuleFactory.swift in Sources */,
 				A2AF62FC2A55BF5100DD2148 /* APIRequestConfiguration.swift in Sources */,
 				A2AF62E62A55939200DD2148 /* UserRepositoriesViewModel.swift in Sources */,
 				A2A41CE02A51B840005DB375 /* FollowersView.swift in Sources */,

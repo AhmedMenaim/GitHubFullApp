@@ -11,6 +11,7 @@ extension Resolver: ResolverRegistering {
   @MainActor
   public static func registerAllServices() {
     registerUsersDependencies()
+    registerUserDetailsDependencies()
   }
 
   // MARK: - UsersDependencies
@@ -22,5 +23,14 @@ extension Resolver: ResolverRegistering {
     register { UsersDataSource() as UsersDataSourceProtocol }
     register { UsersUseCase() as UsersUseCaseProtocol }
     register { UsersViewModel() }
+  }
+
+  // MARK: - UserDetailsDependencies
+
+  @MainActor
+  private static func registerUserDetailsDependencies() {
+    register { UserDetailsDataSource() as UserDetailsDataSourceProtocol }
+    register { UserDetailsUseCase() as UserDetailsUseCaseProtocol }
+    register { UserDetailsViewModel() }
   }
 }

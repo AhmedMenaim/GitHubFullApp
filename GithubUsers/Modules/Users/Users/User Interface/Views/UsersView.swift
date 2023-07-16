@@ -19,7 +19,7 @@ struct UsersView: View {
       } else {
         List(usersViewModel.usersArray, id: \.self, selection: $selectedUser) { user in
           NavigationLink<UserCard, UserDetailsView?>(
-            destination: UserDetailsModuleFactory().makeView() as? UserDetailsView
+            destination: UserDetailsView()
           ) {
             UserCard(user: user)
           }

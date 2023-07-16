@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol UserDetailsViewModelProtocol {
+protocol UserDetailsViewModelProtocol: ObservableObject {
   var userDetails: UserDetailsViewItemProtocol? { get }
   func userDetailsViewItem() async
 }
