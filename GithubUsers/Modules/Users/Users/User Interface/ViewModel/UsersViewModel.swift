@@ -5,25 +5,16 @@
 //  Created by Menaim on 04/07/2023.
 //
 
+import Resolver
 import SwiftUI
 
-protocol UsersViewModelDependenciesProtocol {
-  var useCase: UsersUseCaseProtocol { get }
-}
-
 @MainActor
-final class UsersViewModel: ObservableObject {
+final class UsersViewModel {
   // MARK: - Properties
 
   @Published var usersArray: [UserViewItem] = []
   @Published var isLoading = true
-  private let useCase: UsersUseCaseProtocol
-
-  // MARK: - Init
-
-  init(dependencies: UsersViewModelDependenciesProtocol) {
-    self.useCase = dependencies.useCase
-  }
+  private var useCase: UsersUseCaseProtocol = Resolver.resolve()
 
   // MARK: - Constants
 

@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-protocol UsersViewModelProtocol {
+protocol UsersViewModelProtocol: ObservableObject {
   var usersArray: [UserViewItem] { get set }
+  var isLoading: Bool { get set }
   func fetchUsers() async
 }
 

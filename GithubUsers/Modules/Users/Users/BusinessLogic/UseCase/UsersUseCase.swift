@@ -5,25 +5,13 @@
 //  Created by Menaim on 05/07/2023.
 //
 
-import Foundation
-
-protocol UsersUseCaseDependenciesProtocol {
-  var dataSource: UsersDataSourceProtocol { get }
-  var repository: UsersRepositoryProtocol { get }
-}
+import Resolver
 
 final class UsersUseCase {
   // MARK: - Properties
 
-  private var dataSource: UsersDataSourceProtocol
-  private let repository: UsersRepositoryProtocol
-
-  // MARK: - Init
-
-  init(dependencies: UsersUseCaseDependenciesProtocol) {
-    self.dataSource = dependencies.dataSource
-    self.repository = dependencies.repository
-  }
+  private var dataSource: UsersDataSourceProtocol = Resolver.resolve()
+  private var repository: UsersRepositoryProtocol = Resolver.resolve()
 }
 
 // MARK: - UsersUseCaseProtocol

@@ -5,21 +5,12 @@
 //  Created by Menaim on 06/07/2023.
 //
 
-import Foundation
-
-protocol UsersRepositoryDependenciesProtocol {
-  var client: UsersAPIClientProtocol { get }
-}
+import Resolver
 
 struct UsersRepository {
-
-  init(dependencies: UsersRepositoryDependenciesProtocol) {
-    self.client = dependencies.client
-  }
-
   // MARK: - Privates
 
-  private let client: UsersAPIClientProtocol
+  private var client: UsersAPIClientProtocol = Resolver.resolve()
 
   private func convert(_ response: UserDetailsNetworkResponse?)
     -> UserDetailsRepositoryResponseProtocol

@@ -5,19 +5,12 @@
 //  Created by Menaim on 03/07/2023.
 //
 
+import Resolver
 import SwiftUI
 
-protocol UsersViewDependenciesProtocol {
-  var usersViewModel: UsersViewModel { get set }
-}
-
 struct UsersView: View {
-  @ObservedObject private var usersViewModel: UsersViewModel
+  @ObservedObject private var usersViewModel: UsersViewModel = Resolver.resolve()
   @State private var selectedUser: UserViewItem?
-
-  init(dependencies: UsersViewDependenciesProtocol) {
-    self.usersViewModel = dependencies.usersViewModel
-  }
 
   var body: some View {
     VStack {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Resolver
 
 protocol UserDetailsModuleFactoryProtocol {
   func makeView() -> any View
@@ -18,10 +19,10 @@ final class UserDetailsModuleFactory { }
 extension UserDetailsModuleFactory: UserDetailsModuleFactoryProtocol {
   @MainActor
   func makeView() -> any View {
-    let repositoryDependencies = UsersRepositoryDependencies(
-      client: UsersAPIClient(client: BaseAPIClient())
-    )
-    let repository = UsersRepository(dependencies: repositoryDependencies)
+//    let repositoryDependencies = UsersRepositoryDependencies(
+//      client: UsersAPIClient(client: BaseAPIClient())
+//    )
+    let repository: UsersRepositoryProtocol = Resolver.resolve()
     let useCaseDependencies = UserDetailsUseCaseDependencies(
       dataSource: UserDetailsDataSource(),
       repository: repository
@@ -56,6 +57,6 @@ private struct UserDetailsViewDependencies: UserDetailsViewDependenciesProtocol 
 
 // MARK: - UsersRepositoryDependenciesProtocol
 
-private struct UsersRepositoryDependencies: UsersRepositoryDependenciesProtocol {
-  var client: UsersAPIClientProtocol
-}
+//private struct UsersRepositoryDependencies: UsersRepositoryDependenciesProtocol {
+//  var client: UsersAPIClientProtocol
+//}

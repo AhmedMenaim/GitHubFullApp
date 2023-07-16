@@ -9,14 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
   @State var usersArray: [User] = []
-  private var moduleFactory = UsersModuleFactory()
   var body: some View {
     TabView {
       NavigationView {
-        if let usersView = moduleFactory.makeView() as? UsersView {
-          usersView
+          UsersView()
             .navigationTitle("Users")
-        }
       }
       .tabItem {
         VStack {
