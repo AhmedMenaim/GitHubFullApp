@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct FollowersDataSource: FollowersDataSourceProtocol {
+  var followersArray: [Follower] = []
+  var isLoading = true
+}

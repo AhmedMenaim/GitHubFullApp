@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol FollowersDataSourceProtocol {
+  var followersArray: [Follower] { get set }
+  var isLoading: Bool { get set }
+}
