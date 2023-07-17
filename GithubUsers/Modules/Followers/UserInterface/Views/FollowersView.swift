@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct FollowersView: View {
-  //  @State var followersArray: [Follower] = []
-
   @Binding var username: String
   @StateObject private var followersViewModel = FollowersViewModel()
   let columns = Array(repeating: GridItem(), count: 2)
@@ -26,7 +24,6 @@ struct FollowersView: View {
       Task {
         await followersViewModel.fetchUserFollowers(with: username)
       }
-//      fetchUserFollowers()
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(leading: CustomizedBackButton())

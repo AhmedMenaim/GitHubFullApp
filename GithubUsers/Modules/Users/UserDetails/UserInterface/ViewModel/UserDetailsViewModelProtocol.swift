@@ -10,6 +10,7 @@ import SwiftUI
 protocol UserDetailsViewModelProtocol: ObservableObject {
   var userDetails: UserDetailsViewItemProtocol? { get }
   func userDetailsViewItem() async
+  func saveUsername()
 }
 
 protocol UserDetailsViewItemProtocol {

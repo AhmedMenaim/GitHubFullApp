@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol UserDetailsDataSourceProtocol { }
+protocol UserDetailsDataSourceProtocol {
+  var username: String { get set }
+}

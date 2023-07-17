@@ -70,6 +70,10 @@ extension UserDetailsViewModel: UserDetailsViewModelProtocol {
       print(error)
     }
   }
+
+  func saveUsername() {
+    useCase.setUsername()
+  }
 }
 
 // MARK: - UserDetailsViewItemProtocol

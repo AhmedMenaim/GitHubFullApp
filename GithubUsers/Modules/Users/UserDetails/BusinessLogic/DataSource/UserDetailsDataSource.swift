@@ -7,4 +7,6 @@
 
 import Foundation
 
-struct UserDetailsDataSource: UserDetailsDataSourceProtocol { }
+struct UserDetailsDataSource: UserDetailsDataSourceProtocol {
+  var username = ""
+}

@@ -47,12 +47,17 @@ final class UserDetailsUseCase {
 extension UserDetailsUseCase: UserDetailsUseCaseProtocol {
   func retrieveUserDetails() async throws -> UserDetailsItemProtocol? {
     guard let username = UserDefaults.standard.string(forKey: "Username") else { return nil }
+    dataSource.username = username
     let parameters = UserDetailsParameters(username: username)
     guard let userDetailsResponse = try await repository.getUserDetails(parameters: parameters) else {
       return nil
     }
     let userDetails = convert(userDetailsResponse)
     return userDetails
+  }
+
+  func setUsername() {
+    UserDefaults.standard.set(dataSource.username, forKey: "Username")
   }
 }
 

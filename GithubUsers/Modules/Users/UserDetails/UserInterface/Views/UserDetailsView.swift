@@ -49,10 +49,14 @@ struct UserDetailsView: View {
         VStack(spacing: 10) {
           HStack(spacing: 12.0) {
             NavigationLink(destination: {
-              FollowersView(username: $username)
+              FollowersView()
             }, label: {
               OptionView(title: $viewModel.followers)
-            })
+            }).simultaneousGesture(
+              TapGesture().onEnded {
+                viewModel.saveUsername()
+              }
+            )
             OptionView(title: $viewModel.following)
           }
           HStack(alignment: .center, spacing: 12.0) {

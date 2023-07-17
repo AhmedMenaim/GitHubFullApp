@@ -9,6 +9,7 @@ import Foundation
 
 protocol UserDetailsUseCaseProtocol {
   func retrieveUserDetails() async throws -> UserDetailsItemProtocol?
+  func setUsername()
 }
 
 protocol UserDetailsItemStatusesProtocol {
