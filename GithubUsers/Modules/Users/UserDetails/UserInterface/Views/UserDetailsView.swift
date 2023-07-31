@@ -9,10 +9,9 @@ import Resolver
 import SwiftUI
 
 struct UserDetailsView: View {
-  // MARK: - Properties
+  // MARK: - Dependencies
 
   @ObservedObject private var viewModel: UserDetailsViewModel = Resolver.resolve()
-  @State var username = ""
 
   // MARK: - Views
 
@@ -61,7 +60,7 @@ struct UserDetailsView: View {
           }
           HStack(alignment: .center, spacing: 12.0) {
             NavigationLink(destination: {
-              UserRepositoriesView(username: $username)
+              UserRepositoriesView()
             }, label: {
               OptionView(title: $viewModel.repositories)
             })
@@ -148,7 +147,7 @@ struct UserDetailsView: View {
     }
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(leading: CustomizedBackButton())
-    .navigationTitle(username)
+    .navigationTitle(viewModel.userDetails?.userName ?? "")
     .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       Task {
