@@ -5,29 +5,36 @@
 //  Created by Menaim on 04/07/2023.
 //
 
+import Resolver
 import SwiftUI
 
 struct RepositoriesView: View {
-  @StateObject private var viewModel = RepositoriesViewModel()
+  // MARK: - Dependencies
+
+  @ObservedObject private var viewModel: RepositoriesViewModel = Resolver.resolve()
+
+  // MARK: - Views
 
   var body: some View {
-    ZStack {
-      VStack {
-        List {
-          ForEach(viewModel.repositoriesArray) { repository in
-            //            NavigationLink(
-            //              destination: UserDetails(username: user.userName)) {
-            //                UserCard(user: user)
-            //              }
-            UserRepositoryCard(repository: repository)
+    VStack {
+      if viewModel.isLoading {
+        ProgressView()
+      } else {
+        ZStack {
+          VStack {
+            List {
+              ForEach(viewModel.repositoriesArray) { repository in
+                RepositoryCard(repository: repository)
+              }
+              .listRowSeparator(.visible)
+            }
+            .listStyle(.plain)
+            .opacity(viewModel.isSearchWorking ? 1 : 0)
           }
-          .listRowSeparator(.visible)
+          SearchNoResultsView()
+            .opacity(viewModel.isSearchWorking ? 0 : 1)
         }
-        .listStyle(.plain)
-        .opacity(viewModel.isSearchWorking ? 1 : 0)
       }
-      SearchNoResultsView()
-        .opacity(viewModel.isSearchWorking ? 0 : 1)
     }
     .searchable(text: $viewModel.searchText)
     .onChange(of: viewModel.searchText) { _ in

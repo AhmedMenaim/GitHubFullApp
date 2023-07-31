@@ -6,46 +6,74 @@
 //
 
 import Foundation
+import Resolver
 
 @MainActor
-final class RepositoriesViewModel: ObservableObject {
-  @Published private (set) var repositoriesArray: [Repository] = []
-  @Published private (set) var isSearchWorking = false
-  @Published var searchText = ""
+final class RepositoriesViewModel {
+  // MARK: - Dependencies
 
+  private let useCase: RepositoriesUseCaseProtocol = Resolver.resolve()
+
+  // MARK: - Constants
+
+  private enum Constants {
+    static let privateStatus = "Private"
+    static let publicStatus = "Public"
+  }
+
+  // MARK: - Properties
+
+  @Published private(set) var repositoriesArray: [RepositoryViewItem] = []
+  @Published private(set) var isSearchWorking = false
+  @Published var searchText = ""
+  @Published var isLoading = false
+
+  // MARK: - Privates
+
+  private func convert(_ repository: RepositoryProtocol)
+    -> RepositoryViewItem
+  {
+    RepositoryViewItem(
+      repositoryName: repository.repositoryName,
+      repositoryPrivateStatus: setPrivateStatus(repository.isPrivate),
+      repositoryURL: repository.repositoryURL,
+      description: repository.description,
+      repositorySize: repository.repositorySize,
+      repositoryForksCount: repository.repositoryForksCount,
+      repositoryStarsCount: repository.repositoryStarsCount,
+      repositoryOpenIssuesCount: repository.repositoryOpenIssuesCount,
+      repositoryWatchersCount: repository.repositoryWatchersCount,
+      repositoryDefaultBranch: repository.repositoryDefaultBranch,
+      cloneURL: repository.cloneURL,
+      programmingLanguage: repository.programmingLanguage,
+      updatedAt: repository.updatedAt,
+      license: repository.license
+    )
+  }
+
+  private func setPrivateStatus(_ status: Bool?) -> String {
+    (status ?? true) ? Constants.privateStatus : Constants.publicStatus
+  }
+}
+
+// MARK: - RepositoriesViewModelProtocol
+
+extension RepositoriesViewModel: RepositoriesViewModelProtocol {
   func fetchRepositories(with searchText: String) async {
-    do {
-      let repositories = try await RepositoriesAPIClient.shared.getRepositories(searchText: searchText)
-      self.repositoriesArray = repositories.map({ repository in
-        Repository(
-          repositoryName: repository.repositoryName ?? "",
-          isPrivate: repository.isPrivate ?? false,
-          repositoryURL: repository.repositoryURL ?? "",
-          description: repository.description ?? "",
-          repositorySize: repository.repositorySize ?? 0.0,
-          repositoryForksCount: repository.repositoryForksCount ?? 0,
-          repositoryStarsCount: repository.repositoryStarsCount ?? 0,
-          repositoryOpenIssuesCount: repository.repositoryOpenIssuesCount ?? 0,
-          repositoryWatchersCount: repository.repositoryWatchersCount ?? 0,
-          repositoryDefaultBranch: repository.repositoryDefaultBranch ?? "",
-          cloneURL: repository.cloneURL ?? "",
-          programmingLanguage: repository.programmingLanguage ?? "",
-          updatedAt: repository.updatedAt?.formattedDateString() ?? "",
-          licenseName: repository.license?.licenseName ?? "")
-      })
-    } catch let error {
-      print(error)
+    let repositories = await useCase.retrieve(using: searchText)
+    repositoriesArray = repositories.map { repository in
+      convert(repository)
     }
   }
 
   func checkSearchableText() {
-    if searchText.count >= 3 {
+    isSearchWorking = useCase.checkSearchState(for: searchText)
+    if isSearchWorking {
+      isLoading = useCase.notifyLoading()
       Task {
         await fetchRepositories(with: searchText)
-        isSearchWorking = true
+        isLoading = useCase.stopLoading()
       }
-    } else {
-      isSearchWorking = false
     }
   }
 }

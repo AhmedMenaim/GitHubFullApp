@@ -10,7 +10,7 @@ import Foundation
 struct RepositoriesNetworkResponse: Codable {
   var totalRepositoriesCount: Int?
   var repositories: [RepositoryNetworkResponse]?
-  
+
   enum CodingKeys: String, CodingKey {
     case totalRepositoriesCount = "total_count"
     case repositories = "items"

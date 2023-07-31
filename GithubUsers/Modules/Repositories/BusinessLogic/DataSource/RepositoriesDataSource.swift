@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct RepositoriesUDataSource: RepositoriesUDataSourceProtocol {
-
+struct RepositoriesDataSource: RepositoriesDataSourceProtocol {
+  var repositories: [RepositoryProtocol] = []
+  var isLoading = true
 }
