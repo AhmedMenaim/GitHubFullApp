@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UserRepositoriesDataSource: UserRepositoriesDataSourceProtocol {
+  var repositoriesArray: [UserRepositoryProtocol] = []
+  var isLoading = true
+}

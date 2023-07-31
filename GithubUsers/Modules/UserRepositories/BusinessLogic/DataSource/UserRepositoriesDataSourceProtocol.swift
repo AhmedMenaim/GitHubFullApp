@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol UserRepositoriesDataSourceProtocol {
+  var repositoriesArray: [UserRepositoryProtocol] { get set }
+  var isLoading: Bool { get set }
+}
