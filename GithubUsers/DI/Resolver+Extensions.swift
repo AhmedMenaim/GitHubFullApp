@@ -13,6 +13,8 @@ extension Resolver: ResolverRegistering {
     registerUsersDependencies()
     registerUserDetailsDependencies()
     registerFollowersDependencies()
+    registerRepositoriesDependencies()
+    registerUserRepositoriesDependencies()
   }
 
   // MARK: - UsersDependencies
@@ -45,5 +47,27 @@ extension Resolver: ResolverRegistering {
     register { FollowersDataSource() as FollowersDataSourceProtocol }
     register { FollowersUseCase() as FollowersUseCaseProtocol }
     register { FollowersViewModel() }
+  }
+
+  // MARK: - RepositoriesDependencies
+
+  @MainActor
+  private static func registerRepositoriesDependencies() {
+    register { RepositoriesAPIClient() as RepositoriesAPIClientProtocol }
+    register { RepositoriesRepository() as RepositoriesRepositoryProtocol }
+    register { RepositoriesDataSource() as RepositoriesDataSourceProtocol }
+    register { RepositoriesUseCase() as RepositoriesUseCaseProtocol }
+    register { RepositoriesViewModel() }
+  }
+
+  // MARK: - UserRepositoriesDependencies
+
+  @MainActor
+  private static func registerUserRepositoriesDependencies() {
+    register { UserRepositoriesAPIClient() as UserRepositoriesAPIClientProtocol }
+    register { UserRepositoriesRepository() as UserRepositoriesRepositoryProtocol }
+    register { UserRepositoriesDataSource() as UserRepositoriesDataSourceProtocol }
+    register { UserRepositoriesUseCase() as UserRepositoriesUseCaseProtocol }
+    register { UserRepositoriesViewModel() }
   }
 }

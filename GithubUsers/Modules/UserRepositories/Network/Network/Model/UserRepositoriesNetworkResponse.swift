@@ -49,7 +49,7 @@ struct License: Codable {
   }
 }
 
-struct Repository: Identifiable {
+struct UsersRepositoryNetworkResponse: Identifiable {
   var id = UUID()
   var repositoryName: String
   var isPrivate: Bool

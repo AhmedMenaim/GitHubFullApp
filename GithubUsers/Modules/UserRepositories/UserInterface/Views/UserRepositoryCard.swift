@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserRepositoryCard: View {
-  @State var repository: Repository
+  @State var repository: UserRepositoryViewItem
   var body: some View {
     VStack(alignment: .leading, spacing: 8.0) {
       HStack(spacing: 8.0) {
@@ -16,7 +16,7 @@ struct UserRepositoryCard: View {
           .foregroundColor(.purple.opacity(0.8))
           .font(.title3)
           .fontWeight(.heavy)
-        Text(repository.isPrivate ? "Private" : "Public")
+        Text(repository.repositoryPrivateStatus)
           .fontWeight(.bold)
           .foregroundColor(.gray)
           .padding(.horizontal, 8)
@@ -28,7 +28,7 @@ struct UserRepositoryCard: View {
           )
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      if !repository.description.isEmpty {
+      if !(repository.description.isEmpty) {
         Text(repository.description)
           .foregroundColor(.gray.opacity(0.7))
           .fontWeight(.semibold)
@@ -36,7 +36,7 @@ struct UserRepositoryCard: View {
           .multilineTextAlignment(.leading)
       }
       HStack(spacing: 16.0) {
-        if !repository.programmingLanguage.isEmpty {
+        if !(repository.programmingLanguage.isEmpty) {
           Text(repository.programmingLanguage)
         }
         HStack(spacing: 2) {
@@ -47,7 +47,7 @@ struct UserRepositoryCard: View {
           Image(systemName: "tuningfork")
           Text("\(repository.repositoryForksCount)")
         }
-        if !repository.licenseName.isEmpty {
+        if !(repository.licenseName.isEmpty) {
           Text(repository.licenseName)
         }
 
@@ -58,28 +58,5 @@ struct UserRepositoryCard: View {
       }
       .foregroundColor(.gray.opacity(0.9))
     }
-  }
-}
-
-struct UserRepositoryCard_Previews: PreviewProvider {
-  static var previews: some View {
-    let repository = Repository(
-      repositoryName: "30daysoflaptops.github.io",
-      isPrivate: false,
-      repositoryURL: "https://github.com/mojombo/30daysoflaptops.github.io",
-      description: "description",
-      repositorySize: 1197,
-      repositoryForksCount: 4,
-      repositoryStarsCount: 8,
-      repositoryOpenIssuesCount: 0,
-      repositoryWatchersCount: 7,
-      repositoryDefaultBranch: "gh-pages",
-      cloneURL: "https://github.com/mojombo/30daysoflaptops.github.io.git",
-      programmingLanguage: "CSS",
-      updatedAt: "Apr 5, 2023",
-      licenseName: "MIT License"
-    )
-    UserRepositoryCard(repository: repository)
-      .previewDevice("iPhone 14 Pro Max")
   }
 }

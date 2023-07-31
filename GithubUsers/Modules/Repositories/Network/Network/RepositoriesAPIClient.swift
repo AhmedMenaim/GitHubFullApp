@@ -12,6 +12,21 @@ protocol RepositoriesAPIClientProtocol {
 }
 
 class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
+  private let client: BaseAPIClientProtocol
+  init(client: BaseAPIClientProtocol) {
+    self.client = client
+  }
+
+  func getUsers() async throws -> [RepositoryNetworkResponse]? {
+    let request = RepositoriesAPIRequest.getRepositories
+    var repositories: [RepositoryNetworkResponse]?
+    repositories = try await client.perform(request)
+    return repositories
+  }
+}
+
+
+class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
   static let shared = RepositoriesAPIClient()
 
   func getRepositories(searchText: String) async throws -> [RepositoryNetworkResponse] {

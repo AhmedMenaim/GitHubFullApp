@@ -13,7 +13,7 @@ struct SearchNoResultsView: View {
   private enum Constants {
     static let searchImageName = "magnifyingglass"
     static let gitHubImageName = "github2"
-    static let searchMessage = "magnifyingglass"
+    static let searchMessage = "Type a correct repository name"
   }
 
   // MARK: - Views
