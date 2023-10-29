@@ -5,12 +5,12 @@
 //  Created by Menaim on 06/07/2023.
 //
 
-import Resolver
+import Factory
 
 struct UsersRepository {
   // MARK: - Privates
 
-  private var client: UsersAPIClientProtocol = Resolver.resolve()
+  private var client = Container.shared.usersAPIClient()
 
   private func convert(_ response: UserDetailsNetworkResponse?)
     -> UserDetailsRepositoryResponseProtocol

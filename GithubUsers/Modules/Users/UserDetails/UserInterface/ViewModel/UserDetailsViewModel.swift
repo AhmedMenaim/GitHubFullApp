@@ -5,11 +5,15 @@
 //  Created by Menaim on 05/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 @MainActor
 final class UserDetailsViewModel {
+
+  // MARK: - Dependencies
+  private var useCase = Container.shared.userDetailsUseCase()
+
   // MARK: - Constants
 
   private enum Constants {
@@ -21,7 +25,6 @@ final class UserDetailsViewModel {
 
   // MARK: - Properties
 
-  private var useCase: UserDetailsUseCaseProtocol = Resolver.resolve()
   @Published var userDetails: UserDetailsViewItemProtocol?
   var repositories = ""
   var gists = ""

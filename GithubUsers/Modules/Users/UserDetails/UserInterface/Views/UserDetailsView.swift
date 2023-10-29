@@ -5,13 +5,13 @@
 //  Created by Menaim on 01/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 struct UserDetailsView: View {
   // MARK: - Dependencies
 
-  @ObservedObject private var viewModel: UserDetailsViewModel = Resolver.resolve()
+  @ObservedObject private var viewModel = Container.shared.userDetailsViewModel()
 
   // MARK: - Views
 

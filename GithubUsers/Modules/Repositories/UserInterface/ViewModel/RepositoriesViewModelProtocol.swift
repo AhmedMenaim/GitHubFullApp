@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RepositoriesViewModelProtocol: ObservableObject {
-  var isLoading: Bool { get set }
+  var isLoading: Bool { get }
   func fetchRepositories(with searchText: String) async
   func checkSearchableText()
 }

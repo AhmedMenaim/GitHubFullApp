@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import Resolver
+import Factory
 
 struct FollowersRepository {
-  private var client: FollowersAPIClientProtocol = Resolver.resolve()
+  private var client = Container.shared.followersAPIClient()
 }
 
 // MARK: - FollowersRepositoryProtocol

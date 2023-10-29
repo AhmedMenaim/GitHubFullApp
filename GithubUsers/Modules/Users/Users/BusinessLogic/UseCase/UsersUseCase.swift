@@ -5,13 +5,13 @@
 //  Created by Menaim on 05/07/2023.
 //
 
-import Resolver
+import Factory
 
 final class UsersUseCase {
-  // MARK: - Properties
+  // MARK: - Dependencies
 
-  private var dataSource: UsersDataSourceProtocol = Resolver.resolve()
-  private var repository: UsersRepositoryProtocol = Resolver.resolve()
+  private var dataSource = Container.shared.usersDataSource()
+  private var repository = Container.shared.usersRepository()
 }
 
 // MARK: - UsersUseCaseProtocol

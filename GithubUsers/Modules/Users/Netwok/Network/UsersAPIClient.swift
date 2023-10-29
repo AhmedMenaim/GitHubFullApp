@@ -5,7 +5,7 @@
 //  Created by Menaim on 25/06/2023.
 //
 
-import Foundation
+import Factory
 
 protocol UsersAPIClientProtocol {
   func getUsers() async throws -> [UserNetworkResponse]?
@@ -13,10 +13,8 @@ protocol UsersAPIClientProtocol {
 }
 
 class UsersAPIClient: UsersAPIClientProtocol {
-  let client: BaseAPIClientProtocol
-  init(client: BaseAPIClientProtocol) {
-    self.client = client
-  }
+  
+  private let client = Container.shared.baseAPIClient()
 
   func getUsers() async throws -> [UserNetworkResponse]? {
     let request = UsersAPIRequest.getUsers

@@ -5,12 +5,12 @@
 //  Created by Menaim on 28/07/2023.
 //
 
-import Resolver
+import Factory
 
 struct RepositoriesRepository {
   // MARK: - Dependencies
 
-  private var client: RepositoriesAPIClientProtocol = Resolver.resolve()
+  private var client = Container.shared.repositoriesAPIClient()
 
   // MARK: - Privates
 

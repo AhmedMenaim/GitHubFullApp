@@ -5,15 +5,15 @@
 //  Created by Menaim on 03/07/2023.
 //
 
+import Factory
 import Foundation
-import Resolver
 
 protocol FollowersAPIClientProtocol {
   func getFollowers(parameters: FollowersParametersProtocol) async throws -> [FollowersNetworkResponse]?
 }
 
 class FollowersAPIClient: FollowersAPIClientProtocol {
-  private let client: BaseAPIClientProtocol = Resolver.resolve()
+  private let client = Container.shared.baseAPIClient()
 
   func getFollowers(parameters: FollowersParametersProtocol) async throws -> [FollowersNetworkResponse]? {
     let request = FollowersAPIRequest.getFollowers(parameters: parameters)

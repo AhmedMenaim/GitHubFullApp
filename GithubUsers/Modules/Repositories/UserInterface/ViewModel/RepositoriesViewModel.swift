@@ -5,14 +5,14 @@
 //  Created by Menaim on 05/07/2023.
 //
 
+import Factory
 import Foundation
-import Resolver
 
 @MainActor
 final class RepositoriesViewModel {
   // MARK: - Dependencies
 
-  private let useCase: RepositoriesUseCaseProtocol = Resolver.resolve()
+  private let useCase = Container.shared.repositoriesUseCase()
 
   // MARK: - Constants
 

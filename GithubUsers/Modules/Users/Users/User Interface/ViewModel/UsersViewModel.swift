@@ -5,7 +5,7 @@
 //  Created by Menaim on 04/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 @MainActor
@@ -14,7 +14,7 @@ final class UsersViewModel {
 
   @Published var usersArray: [UserViewItem] = []
   @Published var isLoading = true
-  private var useCase: UsersUseCaseProtocol = Resolver.resolve()
+  private var useCase = Container.shared.usersUseCase()
 
   // MARK: - Constants
 

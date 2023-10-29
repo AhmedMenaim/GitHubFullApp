@@ -5,12 +5,19 @@
 //  Created by Menaim on 03/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 struct UsersView: View {
-  @ObservedObject private var usersViewModel: UsersViewModel = Resolver.resolve()
+  // MARK: - Dependencies
+
+  @ObservedObject private var usersViewModel = Container.shared.usersViewModel()
+
+  // MARK: - Properties
+
   @State private var selectedUser: UserViewItem?
+
+  // MARK: - Views
 
   var body: some View {
     VStack {

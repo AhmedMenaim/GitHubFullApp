@@ -5,7 +5,7 @@
 //  Created by Menaim on 04/07/2023.
 //
 
-import Resolver
+import Factory
 
 protocol UserRepositoriesAPIClientProtocol {
   func getUserRepositories(parameters: UserRepositoriesSearchParametersProtocol) async throws
@@ -14,7 +14,7 @@ protocol UserRepositoriesAPIClientProtocol {
 
 // MARK: - UserRepositoriesAPIClientProtocol
 class UserRepositoriesAPIClient: UserRepositoriesAPIClientProtocol {
-  private let client: BaseAPIClientProtocol = Resolver.resolve()
+  private let client = Container.shared.baseAPIClient()
 
   func getUserRepositories(parameters: UserRepositoriesSearchParametersProtocol) async throws -> [UserRepositoriesNetworkResponse]? {
 

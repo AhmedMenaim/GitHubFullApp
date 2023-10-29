@@ -5,7 +5,7 @@
 //  Created by Menaim on 04/07/2023.
 //
 
-import Resolver
+import Factory
 
 protocol RepositoriesAPIClientProtocol {
   func getRepositories(
@@ -16,7 +16,7 @@ protocol RepositoriesAPIClientProtocol {
 // MARK: - RepositoriesAPIClientProtocol
 
 class RepositoriesAPIClient: RepositoriesAPIClientProtocol {
-  private let client: BaseAPIClientProtocol = Resolver.resolve()
+  private let client = Container.shared.baseAPIClient()
 
   func getRepositories(
     parameters: RepositoriesSearchParametersProtocol

@@ -5,11 +5,15 @@
 //  Created by Menaim on 04/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 @MainActor
 final class FollowersViewModel {
+  // MARK: - Dependencies
+
+  private let useCase = Container.shared.followersUseCase()
+
   // MARK: - Constants
 
   private enum Constants {
@@ -28,7 +32,6 @@ final class FollowersViewModel {
   @Published var followersArray: [FollowerViewItem] = []
   @Published var staticViewItem: FollowersStaticViewItem?
   @Published var isLoading = true
-  private var useCase: FollowersUseCaseProtocol = Resolver.resolve()
 
   // MARK: - Privates
 

@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Resolver
+import Factory
 
 @MainActor
 final class UserRepositoriesViewModel: ObservableObject {
   // MARK: - Dependencies
 
-  private let useCase: UserRepositoriesUseCaseProtocol = Resolver.resolve()
+  private let useCase = Container.shared.userRepositoriesUseCase()
 
   // MARK: - Constants
 

@@ -5,13 +5,13 @@
 //  Created by Menaim on 28/07/2023.
 //
 
-import Resolver
+import Factory
 
 final class RepositoriesUseCase {
   // MARK: - Dependencies
 
-  private var dataSource: RepositoriesDataSourceProtocol = Resolver.resolve()
-  private let repository: RepositoriesRepositoryProtocol = Resolver.resolve()
+  private var dataSource = Container.shared.repositoriesDataSource()
+  private let repository = Container.shared.repositoriesRepository()
 
   // MARK: - Privates
 

@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Resolver
+import Factory
 
 final class FollowersUseCase {
   // MARK: - Properties
 
-  private var dataSource: FollowersDataSourceProtocol = Resolver.resolve()
-  private var repository: FollowersRepositoryProtocol = Resolver.resolve()
+  private var dataSource = Container.shared.followersDataSource()
+  private let repository = Container.shared.followersRepository()
 }
 
 // MARK: - FollowersUseCaseProtocol

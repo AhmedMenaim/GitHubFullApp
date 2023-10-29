@@ -5,13 +5,13 @@
 //  Created by Menaim on 02/07/2023.
 //
 
-import Resolver
+import Factory
 import SwiftUI
 
 struct FollowersView: View {
   // MARK: - Properties
 
-  @ObservedObject private var viewModel: FollowersViewModel = Resolver.resolve()
+  @ObservedObject private var viewModel = Container.shared.followersViewModel()
   let columns = Array(repeating: GridItem(), count: 2)
 
   // MARK: - Views

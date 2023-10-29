@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Resolver
+import Factory
 
 final class UserDetailsUseCase {
   // MARK: - Properties
 
-  private var dataSource: UserDetailsDataSourceProtocol = Resolver.resolve()
-  private var repository: UsersRepositoryProtocol = Resolver.resolve()
+  private var dataSource = Container.shared.userDetailsDataSource()
+  private var repository = Container.shared.usersRepository()
 
   // MARK: - Privates
 
