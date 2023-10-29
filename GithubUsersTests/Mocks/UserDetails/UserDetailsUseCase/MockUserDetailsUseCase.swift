@@ -33,6 +33,8 @@ extension MockUserDetailsUseCase: UserDetailsUseCaseProtocol {
       )
     )
   }
+
+  func setUsername() { }
 }
 
 // MARK: - UserDetailsItemProtocol
