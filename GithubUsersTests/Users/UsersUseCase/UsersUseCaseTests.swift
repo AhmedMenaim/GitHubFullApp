@@ -5,6 +5,7 @@
 //  Created by Menaim on 11/07/2023.
 //
 
+import Factory
 import XCTest
 @testable import GithubUsers
 
@@ -12,11 +13,9 @@ final class UsersUseCaseTests: XCTestCase {
   private var sut: UsersUseCaseProtocol!
 
   override func setUp() {
-    let dependencies = UsersUseCaseDependencies(
-      dataSource: MockUsersDataSource(),
-      repository: MockUsersRepository()
-    )
-    let useCase = UsersUseCase(dependencies: dependencies)
+    Container.shared.usersDataSource.register { MockUsersDataSource() }
+    Container.shared.usersRepository.register { MockUsersRepository() }
+    let useCase = UsersUseCase()
     sut = useCase
   }
 
@@ -71,11 +70,4 @@ final class UsersUseCaseTests: XCTestCase {
       XCTAssertNotNil(error, "Test failed because of the \(error)")
     }
   }
-}
-
-// MARK: - UsersUseCaseDependenciesProtocol
-
-private struct UsersUseCaseDependencies: UsersUseCaseDependenciesProtocol {
-  var dataSource: UsersDataSourceProtocol
-  var repository: UsersRepositoryProtocol
 }

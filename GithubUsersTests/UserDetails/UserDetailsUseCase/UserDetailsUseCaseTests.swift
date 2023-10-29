@@ -5,22 +5,25 @@
 //  Created by Menaim on 12/07/2023.
 //
 
+import Factory
 import XCTest
 @testable import GithubUsers
 
 final class UserDetailsUseCaseTests: XCTestCase {
   private var sut: UserDetailsUseCaseProtocol!
+  private var dataSource: UserDetailsDataSourceProtocol!
+  private var repository: UsersRepositoryProtocol!
 
   override func setUp() {
-    let dependencies = UserDetailsUseCaseDependencies(
-      repository: MockUsersRepository(),
-      dataSource: MockUserDetailsDataSource()
-    )
-    let useCase = UserDetailsUseCase(dependencies: dependencies)
+    Container.shared.userDetailsDataSource.register { MockUserDetailsDataSource() }
+    Container.shared.usersRepository.register { MockUsersRepository() }
+    let useCase = UserDetailsUseCase()
     sut = useCase
   }
 
   override func tearDown() {
+    dataSource = nil
+    repository = nil
     sut = nil
   }
 
@@ -42,11 +45,4 @@ final class UserDetailsUseCaseTests: XCTestCase {
       XCTAssertNotNil(error, "Test failed because of the \(error)")
     }
   }
-}
-
-// MARK: - UserDetailsUseCaseDependenciesProtocol
-
-private struct UserDetailsUseCaseDependencies: UserDetailsUseCaseDependenciesProtocol {
-  var repository: UsersRepositoryProtocol
-  var dataSource: UserDetailsDataSourceProtocol
 }
