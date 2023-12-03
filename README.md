@@ -8,6 +8,9 @@
 
 👉🏻 More design patterns can be added but I thought it's better to be like this for now, as they are not being used in the project and it's not a good thing to add more design patterns even if they are not being used or not needed at this time (**You can do that only in practicing/educational purposes)**.
 
+![Simulator Screen Recording - iPhone 15 Pro - 2023-12-03 at 21 32 40](https://github.com/AhmedMenaim/GitHubFullApp/assets/26345314/4bc2024a-8649-4934-9921-d0627637b603)
+
+
 # Approaches followed
 
 1. Clean architecture with the below diagram.
