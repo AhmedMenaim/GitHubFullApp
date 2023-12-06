@@ -1,6 +1,4 @@
 # GitHubFullApp
-
-⚠️⚠️ Everything here depends on my understanding & experience, it may contain some things not implemented in the best way, We are here to learn from each other 👌🏻 ⚠️⚠️
  
 👉🏻 This repo is created to introduce the implementation of the clean architecture concepts over MVVM.
 
